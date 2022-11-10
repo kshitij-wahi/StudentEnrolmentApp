@@ -11,15 +11,20 @@ namespace StudentEnrolment.Infrastructure.Services
     {
         private string dbFolder = "JsonDb";
 
-        public FileStream openReadStream(string fileName)
+        public StreamReader OpenReadStream(string fileName)
         {
-            FileStream openRStream = System.IO.File.OpenRead(dbFolder + "/" + fileName + ".json");
-            return openRStream;
+            StreamReader rStream = new StreamReader(dbFolder + "/" + fileName + ".json");
+            return rStream;
         }
-        public FileStream openWriteStream(string fileName)
+
+        // stream writing was giving wrong results
+        // changing to writealltext that removes the contents 
+        // of the file completely and writes new contents.
+        // TODO: because we have used stream reading for reading json
+        // for consistency try to use stream writing.
+        public void WriteToFile(string fileName, string json)
         {
-            FileStream openWStream = System.IO.File.OpenWrite(dbFolder + "/" + fileName + ".json");
-            return openWStream;
+            System.IO.File.WriteAllText(dbFolder + "/" + fileName + ".json", json);
         }
     }
 }

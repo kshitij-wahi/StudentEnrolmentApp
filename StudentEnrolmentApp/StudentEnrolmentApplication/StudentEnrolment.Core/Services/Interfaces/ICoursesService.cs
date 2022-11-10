@@ -9,6 +9,6 @@ namespace StudentEnrolment.Core.Services.Interfaces
 {
     public interface ICoursesService
     {
-        Task<List<CourseModel>> GetCoursesAsync();
+        List<CourseModel> GetCourses();
     }
 }

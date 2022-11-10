@@ -20,23 +20,29 @@ namespace StudentEnrolment.API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<StudentDetailsModel>>> GetStudentDetails()
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<List<StudentDetailsModel>> GetStudentDetails()
         {
-            List<StudentDetailsModel> studentDetails = await _studentDetailsService.GetStudentDetailsAsync();
-            return studentDetails;
+            List<StudentDetailsModel>? studentDetails = _studentDetailsService.GetStudentDetails();
+            return studentDetails == null ? NotFound() : Ok(studentDetails);
         }
 
         [HttpPost]
-        public async Task<List<StudentDetailsModel>> AddStudentDetails(StudentDetailsModel newStudentDetails)
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<List<StudentDetailsModel>> AddStudentDetails(StudentDetailsModel newStudentDetails)
         {
-            List<StudentDetailsModel> studentDetails = await _studentDetailsService.AddStudentDetailsAsync(newStudentDetails);
-            return studentDetails;
+            List<StudentDetailsModel> studentDetails = _studentDetailsService.AddStudentDetails(newStudentDetails);
+            return studentDetails == null ? NotFound() : Ok(studentDetails); ;
         }
 
         [HttpPut]
-        public async Task<List<StudentDetailsModel>> UpdateStudentDetails(StudentDetailsModel updatedStudentDetails)
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<List<StudentDetailsModel>> UpdateStudentDetails(StudentDetailsModel updatedStudentDetails)
         {
-            List<StudentDetailsModel> studentDetails = await _studentDetailsService.UpdateStudentDetailsAsync(updatedStudentDetails);
+            List<StudentDetailsModel> studentDetails = _studentDetailsService.UpdateStudentDetails(updatedStudentDetails);
             return studentDetails;
         }
     }

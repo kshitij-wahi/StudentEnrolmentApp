@@ -1,4 +1,5 @@
-﻿using StudentEnrolment.Infrastructure.Services.Interfaces;
+﻿using Newtonsoft.Json;
+using StudentEnrolment.Infrastructure.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,15 +11,28 @@ namespace StudentEnrolment.Infrastructure.Services
 {
     public class JsonHandlingService<T> : IJsonHandlingService<T> where T : class
     {
-        public async Task<List<T>> FetchFromJsonAsync(FileStream jsonFile)
+        private readonly IFileHandlingService _fileHandlingService;
+
+        public JsonHandlingService(IFileHandlingService fileHandlingService)
         {
-            List<T>? fetchedElements = await JsonSerializer.DeserializeAsync<List<T>>(jsonFile);
-            return fetchedElements;
+            _fileHandlingService = fileHandlingService;
+        }
+        public List<T> FetchFromJson(string fileName)
+        {
+            List<T>? fetchedItems = new List<T>();
+            using (StreamReader openStream = _fileHandlingService.OpenReadStream(fileName))
+            {
+                string json = openStream.ReadToEnd();
+                fetchedItems = JsonConvert.DeserializeObject<List<T>>(json);
+            }
+            return fetchedItems;
         }
 
-        public async Task AddToJsonAsync(FileStream jsonFile, List<T> listOfEntities)
+        
+        public void AddToJson(string fileName, List<T> list)
         {
-            await JsonSerializer.SerializeAsync(jsonFile, listOfEntities);
+            string studentDetailsJson = JsonConvert.SerializeObject(list, Newtonsoft.Json.Formatting.Indented);
+            _fileHandlingService.WriteToFile(fileName, studentDetailsJson);
         }
     }
 }

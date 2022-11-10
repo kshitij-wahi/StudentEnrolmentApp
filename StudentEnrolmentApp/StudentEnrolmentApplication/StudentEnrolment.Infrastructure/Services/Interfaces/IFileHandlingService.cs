@@ -8,7 +8,7 @@ namespace StudentEnrolment.Infrastructure.Services.Interfaces
 {
     public interface IFileHandlingService
     {
-        FileStream openReadStream(string fileName);
-        FileStream openWriteStream(string fileName);
+        StreamReader OpenReadStream(string fileName);
+        void WriteToFile(string fileName, string json);
     }
 }

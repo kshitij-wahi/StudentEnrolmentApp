@@ -8,7 +8,7 @@ namespace StudentEnrolment.Infrastructure.Services.Interfaces
 {
     public interface IJsonHandlingService<T> where T : class
     {
-        Task<List<T>> FetchFromJsonAsync(FileStream jsonFile);
-        Task AddToJsonAsync(FileStream jsonFile, List<T> listOfEntities);
+        List<T> FetchFromJson(string fileName);
+        void AddToJson(string fileName, List<T> list);
     }
 }

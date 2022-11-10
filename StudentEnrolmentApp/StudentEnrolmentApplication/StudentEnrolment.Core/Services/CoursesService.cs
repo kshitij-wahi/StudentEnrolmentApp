@@ -17,10 +17,10 @@ namespace StudentEnrolment.Core.Services
         {
             _repositoryService = repositoryService;
         }
-        public async Task<List<CourseModel>> GetCoursesAsync()
+        public List<CourseModel> GetCourses()
         {
             // the file name logic is there till we have json files as db
-            List<CourseModel> courses = await _repositoryService.GetAsync("Courses");
+            List<CourseModel> courses = _repositoryService.Get("Courses");
             return courses;
         }
     }

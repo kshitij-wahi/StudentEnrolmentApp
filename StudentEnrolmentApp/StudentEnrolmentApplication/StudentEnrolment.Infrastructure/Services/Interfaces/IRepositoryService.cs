@@ -8,8 +8,8 @@ namespace StudentEnrolment.Infrastructure.Services.Interfaces
 {
     public interface IRepositoryService<T> where T : class
     {
-        Task<List<T>> GetAsync(string fileName);
-        Task AddAsync(string fileName, T listOfEntities);
-        Task UpdateAsync(string fileName, List<T> entityList);
+        List<T> Get(string fileName);
+        void Add(string fileName, T entity);
+        void Update(string fileName, List<T> entities);
     }
 }

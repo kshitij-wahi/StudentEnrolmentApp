@@ -17,29 +17,36 @@ namespace StudentEnrolment.Core.Services
         {
             _repositoryService = repositoryService;
         }
-        public async Task<List<StudentDetailsModel>> GetStudentDetailsAsync()
+        public List<StudentDetailsModel> GetStudentDetails()
         {
             // the file name logic is there till we have json files as db
-            List<StudentDetailsModel> studentDetails = await _repositoryService.GetAsync("Students");
+            List<StudentDetailsModel> studentDetails = _repositoryService.Get("Students");
             return studentDetails;
         }
 
-        public async Task<List<StudentDetailsModel>> AddStudentDetailsAsync(StudentDetailsModel newStudentDetails)
+        public List<StudentDetailsModel> AddStudentDetails(StudentDetailsModel newStudentDetails)
         {
-            await _repositoryService.AddAsync("Students", newStudentDetails);
-            List<StudentDetailsModel> studentDetails = await _repositoryService.GetAsync("Students");
+
+            _repositoryService.Add("Students", newStudentDetails);
+            List<StudentDetailsModel> studentDetails = _repositoryService.Get("Students");
             return studentDetails;
         }
 
-        public async Task<List<StudentDetailsModel>> UpdateStudentDetailsAsync(StudentDetailsModel updatedStudentDetails)
+        // We have kept the firstordefault logic here in the
+        // service. Ideally it should be repository but finding
+        // id in generic repository is tricky. In dbset based 
+        // repo we make a baseentity class and define an id in it.
+        // Here if we will try to that, there would be a mapping
+        // required between our model class ids and baseentity class ids.
+        public List<StudentDetailsModel> UpdateStudentDetails(StudentDetailsModel updatedStudentDetails)
         {
-            List<StudentDetailsModel> studentDetails = await _repositoryService.GetAsync("Students");
+            List<StudentDetailsModel> studentDetails = _repositoryService.Get("Students");
             var studentDetailsToUpdate = studentDetails.FirstOrDefault(item => item.StudentId == updatedStudentDetails.StudentId);
             var index = studentDetails.IndexOf(studentDetailsToUpdate);
             if (index != -1)
                 studentDetails[index] = updatedStudentDetails;
-            await _repositoryService.UpdateAsync("Students", studentDetails);
-            studentDetails = await _repositoryService.GetAsync("Students");
+            _repositoryService.Update("Students", studentDetails);
+            studentDetails = _repositoryService.Get("Students");
             return studentDetails;
         }
     }

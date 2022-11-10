@@ -18,10 +18,12 @@ namespace StudentEnrolment.API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<CourseModel>>> GetCourses()
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<List<CourseModel>> GetCourses()
         {
-            List<CourseModel> courses = await _coursesService.GetCoursesAsync();
-            return courses;
+            List<CourseModel>? courses = _coursesService.GetCourses();
+            return courses == null ? NotFound() : Ok(courses);
         }
     }
 }

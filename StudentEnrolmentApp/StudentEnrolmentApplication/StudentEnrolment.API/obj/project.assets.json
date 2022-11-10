@@ -307,11 +307,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\MyWorkspace\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.API\\StudentEnrolment.API.csproj",
+      "projectUniqueName": "D:\\MyWorkspace\\Git\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.API\\StudentEnrolment.API.csproj",
       "projectName": "StudentEnrolment.API",
-      "projectPath": "D:\\MyWorkspace\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.API\\StudentEnrolment.API.csproj",
+      "projectPath": "D:\\MyWorkspace\\Git\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.API\\StudentEnrolment.API.csproj",
       "packagesPath": "C:\\Users\\kshit\\.nuget\\packages\\",
-      "outputPath": "D:\\MyWorkspace\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.API\\obj\\",
+      "outputPath": "D:\\MyWorkspace\\Git\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\kshit\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -328,11 +328,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\MyWorkspace\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.Core\\StudentEnrolment.Core.csproj": {
-              "projectPath": "D:\\MyWorkspace\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.Core\\StudentEnrolment.Core.csproj"
+            "D:\\MyWorkspace\\Git\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.Core\\StudentEnrolment.Core.csproj": {
+              "projectPath": "D:\\MyWorkspace\\Git\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.Core\\StudentEnrolment.Core.csproj"
             },
-            "D:\\MyWorkspace\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.Infrastructure\\StudentEnrolment.Infrastructure.csproj": {
-              "projectPath": "D:\\MyWorkspace\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.Infrastructure\\StudentEnrolment.Infrastructure.csproj"
+            "D:\\MyWorkspace\\Git\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.Infrastructure\\StudentEnrolment.Infrastructure.csproj": {
+              "projectPath": "D:\\MyWorkspace\\Git\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.Infrastructure\\StudentEnrolment.Infrastructure.csproj"
             }
           }
         }

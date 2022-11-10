@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\MyWorkspace\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.Infrastructure\\StudentEnrolment.Infrastructure.csproj": {}
+    "D:\\MyWorkspace\\Git\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.Infrastructure\\StudentEnrolment.Infrastructure.csproj": {}
   },
   "projects": {
-    "D:\\MyWorkspace\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.Infrastructure\\StudentEnrolment.Infrastructure.csproj": {
+    "D:\\MyWorkspace\\Git\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.Infrastructure\\StudentEnrolment.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\MyWorkspace\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.Infrastructure\\StudentEnrolment.Infrastructure.csproj",
+        "projectUniqueName": "D:\\MyWorkspace\\Git\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.Infrastructure\\StudentEnrolment.Infrastructure.csproj",
         "projectName": "StudentEnrolment.Infrastructure",
-        "projectPath": "D:\\MyWorkspace\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.Infrastructure\\StudentEnrolment.Infrastructure.csproj",
+        "projectPath": "D:\\MyWorkspace\\Git\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.Infrastructure\\StudentEnrolment.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\kshit\\.nuget\\packages\\",
-        "outputPath": "D:\\MyWorkspace\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.Infrastructure\\obj\\",
+        "outputPath": "D:\\MyWorkspace\\Git\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\kshit\\AppData\\Roaming\\NuGet\\NuGet.Config",

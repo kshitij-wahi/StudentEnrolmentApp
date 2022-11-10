@@ -1,4 +1,5 @@
-﻿using StudentEnrolment.Infrastructure.Services.Interfaces;
+﻿using Newtonsoft.Json;
+using StudentEnrolment.Infrastructure.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,36 +11,28 @@ namespace StudentEnrolment.Infrastructure.Services
 {
     public class RepositoryService<T> : IRepositoryService<T> where T : class
     {
-        private readonly IFileHandlingService _fileHandlingService;
         private readonly IJsonHandlingService<T> _jsonHandlingService;
 
-        public RepositoryService(IFileHandlingService fileHandlingService, IJsonHandlingService<T> jsonHandlingService)
+        public RepositoryService(IJsonHandlingService<T> jsonHandlingService)
         {
-            _fileHandlingService = fileHandlingService;
             _jsonHandlingService = jsonHandlingService;
         }
-        public async Task<List<T>> GetAsync(string fileName)
+        public List<T> Get(string fileName)
         {
-            using FileStream openStream = _fileHandlingService.openReadStream(fileName);
-            List<T> fetchedItems = await _jsonHandlingService.FetchFromJsonAsync(openStream);
-            await openStream.DisposeAsync();
+            List<T> fetchedItems = _jsonHandlingService.FetchFromJson(fileName);
             return fetchedItems;
         }
             
-        public async Task AddAsync(string fileName, T entity)
+        public void Add(string fileName, T entity)
         {
-            List<T> fetchedItems = await GetAsync(fileName);
+            List<T> fetchedItems = _jsonHandlingService.FetchFromJson(fileName);
             fetchedItems.Add(entity);
-            using FileStream openStream = _fileHandlingService.openWriteStream(fileName);
-            await _jsonHandlingService.AddToJsonAsync(openStream, fetchedItems);
-            await openStream.DisposeAsync();
+            _jsonHandlingService.AddToJson(fileName, fetchedItems);
         }
 
-        public async Task UpdateAsync(string fileName, List<T> entityList)
+        public void Update(string fileName, List<T> entities)
         {
-            using FileStream openStream = _fileHandlingService.openWriteStream(fileName);
-            await _jsonHandlingService.AddToJsonAsync(openStream, entityList);
-            await openStream.DisposeAsync();
+            _jsonHandlingService.AddToJson(fileName, entities);
         }
 
         //public async Task UpdateAsync(string fileName, T entity)

@@ -10,3 +10,15 @@ D:\MyWorkspace\StudentEnrolmentApp\StudentEnrolmentApplication\StudentEnrolment.
 D:\MyWorkspace\StudentEnrolmentApp\StudentEnrolmentApplication\StudentEnrolment.Infrastructure\obj\Debug\net6.0\refint\StudentEnrolment.Infrastructure.dll
 D:\MyWorkspace\StudentEnrolmentApp\StudentEnrolmentApplication\StudentEnrolment.Infrastructure\obj\Debug\net6.0\StudentEnrolment.Infrastructure.pdb
 D:\MyWorkspace\StudentEnrolmentApp\StudentEnrolmentApplication\StudentEnrolment.Infrastructure\obj\Debug\net6.0\ref\StudentEnrolment.Infrastructure.dll
+D:\MyWorkspace\Git\StudentEnrolmentApp\StudentEnrolmentApplication\StudentEnrolment.Infrastructure\bin\Debug\net6.0\StudentEnrolment.Infrastructure.deps.json
+D:\MyWorkspace\Git\StudentEnrolmentApp\StudentEnrolmentApplication\StudentEnrolment.Infrastructure\bin\Debug\net6.0\StudentEnrolment.Infrastructure.dll
+D:\MyWorkspace\Git\StudentEnrolmentApp\StudentEnrolmentApplication\StudentEnrolment.Infrastructure\bin\Debug\net6.0\StudentEnrolment.Infrastructure.pdb
+D:\MyWorkspace\Git\StudentEnrolmentApp\StudentEnrolmentApplication\StudentEnrolment.Infrastructure\obj\Debug\net6.0\StudentEnrolment.Infrastructure.csproj.AssemblyReference.cache
+D:\MyWorkspace\Git\StudentEnrolmentApp\StudentEnrolmentApplication\StudentEnrolment.Infrastructure\obj\Debug\net6.0\StudentEnrolment.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\MyWorkspace\Git\StudentEnrolmentApp\StudentEnrolmentApplication\StudentEnrolment.Infrastructure\obj\Debug\net6.0\StudentEnrolment.Infrastructure.AssemblyInfoInputs.cache
+D:\MyWorkspace\Git\StudentEnrolmentApp\StudentEnrolmentApplication\StudentEnrolment.Infrastructure\obj\Debug\net6.0\StudentEnrolment.Infrastructure.AssemblyInfo.cs
+D:\MyWorkspace\Git\StudentEnrolmentApp\StudentEnrolmentApplication\StudentEnrolment.Infrastructure\obj\Debug\net6.0\StudentEnrolment.Infrastructure.csproj.CoreCompileInputs.cache
+D:\MyWorkspace\Git\StudentEnrolmentApp\StudentEnrolmentApplication\StudentEnrolment.Infrastructure\obj\Debug\net6.0\StudentEnrolment.Infrastructure.dll
+D:\MyWorkspace\Git\StudentEnrolmentApp\StudentEnrolmentApplication\StudentEnrolment.Infrastructure\obj\Debug\net6.0\refint\StudentEnrolment.Infrastructure.dll
+D:\MyWorkspace\Git\StudentEnrolmentApp\StudentEnrolmentApplication\StudentEnrolment.Infrastructure\obj\Debug\net6.0\StudentEnrolment.Infrastructure.pdb
+D:\MyWorkspace\Git\StudentEnrolmentApp\StudentEnrolmentApplication\StudentEnrolment.Infrastructure\obj\Debug\net6.0\ref\StudentEnrolment.Infrastructure.dll

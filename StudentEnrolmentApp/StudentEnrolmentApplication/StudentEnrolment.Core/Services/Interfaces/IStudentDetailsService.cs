@@ -9,8 +9,8 @@ namespace StudentEnrolment.Core.Services.Interfaces
 {
     public interface IStudentDetailsService
     {
-        Task<List<StudentDetailsModel>> GetStudentDetailsAsync();
-        Task<List<StudentDetailsModel>> AddStudentDetailsAsync(StudentDetailsModel newStudentDetails);
-        Task<List<StudentDetailsModel>> UpdateStudentDetailsAsync(StudentDetailsModel updatedStudentDetails);
+        List<StudentDetailsModel> GetStudentDetails();
+        List<StudentDetailsModel> AddStudentDetails(StudentDetailsModel newStudentDetails);
+        List<StudentDetailsModel> UpdateStudentDetails(StudentDetailsModel updatedStudentDetails);
     }
 }

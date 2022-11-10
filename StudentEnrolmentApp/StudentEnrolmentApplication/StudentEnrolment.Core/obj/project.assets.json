@@ -75,11 +75,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\MyWorkspace\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.Core\\StudentEnrolment.Core.csproj",
+      "projectUniqueName": "D:\\MyWorkspace\\Git\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.Core\\StudentEnrolment.Core.csproj",
       "projectName": "StudentEnrolment.Core",
-      "projectPath": "D:\\MyWorkspace\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.Core\\StudentEnrolment.Core.csproj",
+      "projectPath": "D:\\MyWorkspace\\Git\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.Core\\StudentEnrolment.Core.csproj",
       "packagesPath": "C:\\Users\\kshit\\.nuget\\packages\\",
-      "outputPath": "D:\\MyWorkspace\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.Core\\obj\\",
+      "outputPath": "D:\\MyWorkspace\\Git\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\kshit\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -96,8 +96,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\MyWorkspace\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.Infrastructure\\StudentEnrolment.Infrastructure.csproj": {
-              "projectPath": "D:\\MyWorkspace\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.Infrastructure\\StudentEnrolment.Infrastructure.csproj"
+            "D:\\MyWorkspace\\Git\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.Infrastructure\\StudentEnrolment.Infrastructure.csproj": {
+              "projectPath": "D:\\MyWorkspace\\Git\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.Infrastructure\\StudentEnrolment.Infrastructure.csproj"
             }
           }
         }
