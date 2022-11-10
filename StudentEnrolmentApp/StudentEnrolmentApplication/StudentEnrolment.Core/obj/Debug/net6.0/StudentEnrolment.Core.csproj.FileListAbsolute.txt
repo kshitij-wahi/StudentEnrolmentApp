@@ -1,0 +1,15 @@
+D:\MyWorkspace\StudentEnrolmentApp\StudentEnrolmentApplication\StudentEnrolment.Core\obj\Debug\net6.0\StudentEnrolment.Core.csproj.AssemblyReference.cache
+D:\MyWorkspace\StudentEnrolmentApp\StudentEnrolmentApplication\StudentEnrolment.Core\obj\Debug\net6.0\StudentEnrolment.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\MyWorkspace\StudentEnrolmentApp\StudentEnrolmentApplication\StudentEnrolment.Core\obj\Debug\net6.0\StudentEnrolment.Core.AssemblyInfoInputs.cache
+D:\MyWorkspace\StudentEnrolmentApp\StudentEnrolmentApplication\StudentEnrolment.Core\obj\Debug\net6.0\StudentEnrolment.Core.AssemblyInfo.cs
+D:\MyWorkspace\StudentEnrolmentApp\StudentEnrolmentApplication\StudentEnrolment.Core\obj\Debug\net6.0\StudentEnrolment.Core.csproj.CoreCompileInputs.cache
+D:\MyWorkspace\StudentEnrolmentApp\StudentEnrolmentApplication\StudentEnrolment.Core\bin\Debug\net6.0\StudentEnrolment.Core.deps.json
+D:\MyWorkspace\StudentEnrolmentApp\StudentEnrolmentApplication\StudentEnrolment.Core\bin\Debug\net6.0\StudentEnrolment.Core.dll
+D:\MyWorkspace\StudentEnrolmentApp\StudentEnrolmentApplication\StudentEnrolment.Core\bin\Debug\net6.0\StudentEnrolment.Core.pdb
+D:\MyWorkspace\StudentEnrolmentApp\StudentEnrolmentApplication\StudentEnrolment.Core\bin\Debug\net6.0\StudentEnrolment.Infrastructure.dll
+D:\MyWorkspace\StudentEnrolmentApp\StudentEnrolmentApplication\StudentEnrolment.Core\bin\Debug\net6.0\StudentEnrolment.Infrastructure.pdb
+D:\MyWorkspace\StudentEnrolmentApp\StudentEnrolmentApplication\StudentEnrolment.Core\obj\Debug\net6.0\StudentEnrolment.Core.csproj.CopyComplete
+D:\MyWorkspace\StudentEnrolmentApp\StudentEnrolmentApplication\StudentEnrolment.Core\obj\Debug\net6.0\StudentEnrolment.Core.dll
+D:\MyWorkspace\StudentEnrolmentApp\StudentEnrolmentApplication\StudentEnrolment.Core\obj\Debug\net6.0\refint\StudentEnrolment.Core.dll
+D:\MyWorkspace\StudentEnrolmentApp\StudentEnrolmentApplication\StudentEnrolment.Core\obj\Debug\net6.0\StudentEnrolment.Core.pdb
+D:\MyWorkspace\StudentEnrolmentApp\StudentEnrolmentApplication\StudentEnrolment.Core\obj\Debug\net6.0\ref\StudentEnrolment.Core.dll

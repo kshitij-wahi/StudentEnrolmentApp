@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "6nf4tiYYmaS917gLPcYKPZqAop0h0dGGHjbZW+OEJc/Kn64vDKETKJ0j4Y/cgTGulMQeubiA0WBxfi3wL47Tlw==",
+  "success": true,
+  "projectFilePath": "D:\\MyWorkspace\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.Infrastructure\\StudentEnrolment.Infrastructure.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\kshit\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
