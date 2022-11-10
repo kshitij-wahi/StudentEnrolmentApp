@@ -1,0 +1,19 @@
+<!-- table showing student details with edit option
+form for student details
+fields for module registration
+table for showing modules enrolled in
+
+one component for table
+one cmoponent for form with enrollment table
+-->
+
+<div class="container">
+    <div class="row component-spacer">
+        <app-student-details-table (updateStudent)="passToRegistrationForm($event)" [studentDetails]="studentDetails">
+        </app-student-details-table>
+    </div>
+    <div class="row">
+        <app-student-registration-form (submitForm)="submitRegistrationForm($event)"
+            [studentModel]="studentDetailsForRegistrationForm" [courseModel]="courses"></app-student-registration-form>
+    </div>
+</div>

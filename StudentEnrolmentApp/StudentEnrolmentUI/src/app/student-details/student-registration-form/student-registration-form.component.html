@@ -1,0 +1,179 @@
+<div class="col-lg-12">
+    <div class="row">
+        <form (ngSubmit)="onSubmit()" class="col-lg-5" #studentRegistrationForm="ngForm">
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input id="firstName" type="text" class="form-control" name="firstName"
+                    [ngModel]="studentDetails.firstName" required #fname="ngModel">
+                <small *ngIf="fname.invalid && fname.touched">*First name is required</small>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input id="lastName" type="text" class="form-control" name="lastName"
+                    [ngModel]="studentDetails.lastName" required #lname="ngModel">
+                <small *ngIf="lname.invalid && lname.touched">*Last name is required</small>
+            </div>
+            <div class="form-group">
+                <label for="knownAs">Known As</label>
+                <input id="knownAs" type="text" class="form-control" name="knownAs"
+                    [ngModel]="studentDetails.knownAs">
+            </div>
+            <div class="form-group">
+                <label for="displayName">Display Name</label>
+                <input id="displayName" type="text" class="form-control" name="displayName"
+                    [ngModel]="studentDetails.displayName" required #dname="ngModel">
+                <small *ngIf="dname.invalid && dname.touched">*Display name is required</small>
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input id="dob" type="text" class="form-control" name="dob" [ngModel]="studentDetails.dateOfBirth"
+                    required #dob="ngModel">
+                <small *ngIf="dob.invalid && dob.touched">*Date of Birth is required</small>
+            </div>
+            <div class="form-group">
+                <label for="firstName">Gender</label>
+                <select class="form-control" id="gender" name="gender" [ngModel]="studentDetails.gender" required #gender="ngModel">
+                    <option value="M">Male</option>
+                    <option value="F" selected>Female</option>
+                    <option value="O">Other</option>
+                </select>
+                <small *ngIf="gender.invalid && gender.touched">*Gender is required</small>
+            </div>
+            <div class="form-group">
+                <label for="universityEmail">University Email</label>
+                <input id="universityEmail" type="text" class="form-control" name="universityEmail"
+                    [ngModel]="studentDetails.universityEmail" required email #uemail="ngModel">
+                <small *ngIf="uemail.invalid && uemail.touched">*University Email is required</small>
+
+            </div>
+            <div class="form-group">
+                <label for="networkId">Network Id</label>
+                <input id="networkId" type="text" class="form-control" name="networkId"
+                    [ngModel]="studentDetails.networkId" required email #networkId="ngModel">
+                <small *ngIf="networkId.invalid && networkId.touched">*Network Id is required</small>
+
+            </div>
+            <div class="form-group">
+                <label for="homeOrOverseas">Home or Overseas</label>
+                <select class="form-control" id="homeOrOverseas" name="homeOrOverseas" [ngModel]="studentDetails.homeOrOverseas" required #homeOrOverseas="ngModel">
+                    <option value="H">Home</option>
+                    <option value="O">Overseas</option>
+                </select>
+                <small *ngIf="homeOrOverseas.invalid && homeOrOverseas.touched">*Home or Overseas is required</small>
+            </div>
+        </form>
+        <div class="col-lg-7"> 
+            <div class="component-spacer">
+                <table mat-table [dataSource]="dataSource" #sortCourseEnrolment="matSort" matSort>
+
+                    <ng-container matColumnDef="courseCode">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Course Code </th>
+                        <td mat-cell *matCellDef="let row"> {{row.course.courseCode}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="courseName">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Course Name</th>
+                        <td mat-cell *matCellDef="let row"> {{row.course.courseName}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="occurrence">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Occurrence </th>
+                        <td mat-cell *matCellDef="let row"> {{row.occurrence}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="enrolmentStatus">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Enrolment Status </th>
+                        <td mat-cell *matCellDef="let row"> {{row.enrolmentStatus}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="edit">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Edit Record </th>
+                        <td mat-cell *matCellDef="let row">
+                            <button mat-icon-button (click)="editEnrolment(row)" color="primary">
+                                <mat-icon>
+                                    edit
+                                </mat-icon>
+                            </button>
+                        </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+
+                <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of enrolled courses">
+                </mat-paginator>
+            </div>
+            <form (ngSubmit)="onSubmit()" #courseEnrollmentForm="ngForm">
+                <!-- <div class="form-group">
+                    <label for="enrolmentId">Enrolment Id</label>
+                    <input id="enrolmentId" type="text" class="form-control" name="enrolmentId"
+                        [ngModel]="enrolmentDetails.enrolmentId">
+                </div> -->
+                <div class="form-group">
+                    <label for="academicYear">Academic Year</label>
+                    <input id="academicYear" type="text" class="form-control" name="academicYear"
+                        [ngModel]="enrolmentDetails.academicYear" required #academicYear="ngModel">
+                    <small *ngIf="academicYear.invalid && academicYear.touched">*Academic Year is required</small>
+                </div>
+                <div class="form-group">
+                    <label for="yearOfStudy">Year Of Study</label>
+                    <input id="yearOfStudy" type="text" class="form-control" name="yearOfStudy"
+                        [ngModel]="enrolmentDetails.yearOfStudy">
+                    
+                </div>
+                <div class="form-group">
+                    <label for="occurrence">Occurrence</label>
+                    <input id="occurrence" type="text" class="form-control" name="occurrence"
+                        [ngModel]="enrolmentDetails.occurrence">
+                </div>
+                <div class="form-group">
+                    <label for="modeOfAttendance">Mode Of Attendance</label>
+                    <input id="modeOfAttendance" type="text" class="form-control" name="modeOfAttendance"
+                        [ngModel]="enrolmentDetails.modeOfAttendance">
+                </div>
+                <div class="form-group">
+                    <label for="enrolmentStatus">Enrolment Status</label>
+                    <input id="enrolmentStatus" type="text" class="form-control" name="enrolmentStatus"
+                        [ngModel]="enrolmentDetails.enrolmentStatus">
+                </div>
+                <div class="form-group">
+                    <label for="courseEntryDate">Course Entry Date</label>
+                    <input id="courseEntryDate" type="text" class="form-control" name="courseEntryDate"
+                        [ngModel]="enrolmentDetails.courseEntryDate">
+                </div>
+                <div class="form-group">
+                    <label for="expectedEndDate">Expected End Date</label>
+                    <input id="expectedEndDate" type="text" class="form-control" name="expectedEndDate"
+                        [ngModel]="enrolmentDetails.expectedEndDate">
+                </div>
+                <div class="form-group">
+                    <label for="courseCode">Course Code</label>
+                    <select class="form-control" id="gender" name="gender" [ngModel]="studentDetails.gender" required #gender="ngModel">
+                        <option value="M">Male</option>
+                        <option value="F" selected>Female</option>
+                        <option value="O">Other</option>
+                    </select>
+                    <small *ngIf="gender.invalid && gender.touched">*Gender is required</small>
+                    
+                    <input id="courseCode" type="text" class="form-control" name="courseCode"
+                        [ngModel]="enrolmentDetails.course.courseCode">
+                </div>
+                <div class="form-group">
+                    <label for="courseName">Course Name</label>
+                    <input id="courseName" type="text" class="form-control" name="courseName"
+                        [ngModel]="enrolmentDetails.course.courseName">
+                </div>
+
+            </form>
+            <button class="btn btn-primary" (click)="addUpdateCourseEnrolment(courseEnrollmentForm)">
+                {{isUpdate ? 'Update' : 'Add'}}
+            </button>
+            <button class="btn btn-primary" (click)="resetCourseEnrolmentForm(courseEnrollmentForm)">Cancel</button>
+        </div>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Submit</button>
+    <button class="btn btn-primary" (click)="resetAllForms(studentRegistrationForm, courseEnrollmentForm)">Cancel</button>
+
+</div>
