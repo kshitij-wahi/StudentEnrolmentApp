@@ -74,16 +74,14 @@ namespace StudentEnrolment.API.Tests.Controllers
             // Arrange
             var studentModel = _fixture.Create<StudentDetailsModel>();
             _serviceMock.Setup(x => x.AddStudentDetails(studentModel)).Returns(true);
-            var response = "Student details added successfully";
 
             // Act
             var result = _sut.AddStudentDetails(studentModel);
 
             // Assert
-            result.As<OkObjectResult>().Value
+            result.As<OkResult>()
                 .Should()
                 .NotBeNull();
-            Assert.Equal(response, result.As<OkObjectResult>().Value);
 
             // moqs way of verification. 
             _serviceMock.Verify(x => x.AddStudentDetails(studentModel), Times.Once());
@@ -122,16 +120,14 @@ namespace StudentEnrolment.API.Tests.Controllers
             // Arrange
             var request = _fixture.Create<StudentDetailsModel>();
             _serviceMock.Setup(x => x.UpdateStudentDetails(request)).Returns(true);
-            var response = "Student details updated successfully";
 
             // Act
             var result = _sut.UpdateStudentDetails(request);
 
             // Assert
-            result.As<OkObjectResult>().Value
+            result.As<OkResult>()
                 .Should()
                 .NotBeNull();
-            Assert.Equal(response, result.As<OkObjectResult>().Value);
 
             // moqs way of verification. 
             _serviceMock.Verify(x => x.UpdateStudentDetails(request), Times.Once());
