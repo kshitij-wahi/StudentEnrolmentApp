@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { catchError, of } from 'rxjs';
 import { Course } from '../models/course-model';
 import { StudentDetails } from '../models/student-details.model';
 import { CourseService } from '../services/course.service';
@@ -15,50 +16,29 @@ export class StudentDetailsComponent implements OnInit {
 
   studentDetails: StudentDetails[] = [];
   courses: Course[] = [];
-  isUpdate: boolean = false;
   studentDetailsForRegistrationForm: StudentDetails = new StudentDetails();
 
-  constructor(private studentDetailsService: StudentDetailsService, private courseService: CourseService) { }
+  constructor(private _studentDetailsService: StudentDetailsService, private _courseService: CourseService) { }
 
   ngOnInit(): void {
-
+    this.getStudentDetails();
+    this.getCourses();
   }
 
   passToRegistrationForm(student: any) {
     this.studentDetailsForRegistrationForm = student;
-    this.isUpdate = true;
   }
 
-  submitRegistrationForm(student: any) {
-    if (this.isUpdate) {
-      this.addStudentDetails(student);
-    }
-    else {
-      this.updateStudentDetails(student);
-    }
+  getStudentDetails() {
+    this._studentDetailsService
+      .getStudentDetails().subscribe((result) => (this.studentDetails = result,
+        console.log("hereee", result)));
   }
 
-  getStudentDetails(){
-    this.studentDetailsService
-      .getStudentDetails()
-      .subscribe((result: StudentDetails[]) => (this.studentDetails = result, console.log("here",result)));
-  }
-
-  getCourses(){
-    this.courseService
+  getCourses() {
+    this._courseService
       .getCourses()
-      .subscribe((result: Course[]) => (this.courses = result, console.log("here",result)));
+      .subscribe((result: Course[]) => (this.courses = result, console.log("here", result)));
   }
 
-  addStudentDetails(student: any) {
-    this.studentDetailsService
-      .addStudentDetails(student)
-      .subscribe((result: StudentDetails[]) => (this.studentDetails = result));
-  }
-
-  updateStudentDetails(student: any) {
-    this.studentDetailsService
-      .updateStudentDetails(student)
-      .subscribe((result: StudentDetails[]) => (this.studentDetails = result));
-  }
 }

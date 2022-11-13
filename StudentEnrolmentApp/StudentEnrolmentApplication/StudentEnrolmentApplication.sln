@@ -3,11 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentEnrolment.API", "StudentEnrolment.API\StudentEnrolment.API.csproj", "{2FEE8902-507E-43E4-BBE8-128157F0A5EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudentEnrolment.API", "StudentEnrolment.API\StudentEnrolment.API.csproj", "{2FEE8902-507E-43E4-BBE8-128157F0A5EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentEnrolment.Core", "StudentEnrolment.Core\StudentEnrolment.Core.csproj", "{9B744D54-A1D3-4BED-9C89-2ED433552D2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudentEnrolment.Core", "StudentEnrolment.Core\StudentEnrolment.Core.csproj", "{9B744D54-A1D3-4BED-9C89-2ED433552D2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentEnrolment.Infrastructure", "StudentEnrolment.Infrastructure\StudentEnrolment.Infrastructure.csproj", "{26D9DE8F-0FAC-435E-86B7-A2FB89559133}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudentEnrolment.Infrastructure", "StudentEnrolment.Infrastructure\StudentEnrolment.Infrastructure.csproj", "{26D9DE8F-0FAC-435E-86B7-A2FB89559133}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentEnrolment.API.Tests", "Tests\StudentEnrolment.API.Tests\StudentEnrolment.API.Tests.csproj", "{F31FF544-DD4E-4E98-A395-6249CF1E8B84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentEnrolment.Core.Tests", "Tests\StudentEnrolment.Core.Tests\StudentEnrolment.Core.Tests.csproj", "{E61B3708-EA06-4794-A5AA-A7C6245167FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentEnrolment.Infrastructure.Tests", "Tests\StudentEnrolment.Infrastructure.Tests\StudentEnrolment.Infrastructure.Tests.csproj", "{BB72BCC0-D225-4705-BB19-7C99C7F43889}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +33,18 @@ Global
 		{26D9DE8F-0FAC-435E-86B7-A2FB89559133}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26D9DE8F-0FAC-435E-86B7-A2FB89559133}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26D9DE8F-0FAC-435E-86B7-A2FB89559133}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F31FF544-DD4E-4E98-A395-6249CF1E8B84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F31FF544-DD4E-4E98-A395-6249CF1E8B84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F31FF544-DD4E-4E98-A395-6249CF1E8B84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F31FF544-DD4E-4E98-A395-6249CF1E8B84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E61B3708-EA06-4794-A5AA-A7C6245167FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E61B3708-EA06-4794-A5AA-A7C6245167FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E61B3708-EA06-4794-A5AA-A7C6245167FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E61B3708-EA06-4794-A5AA-A7C6245167FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB72BCC0-D225-4705-BB19-7C99C7F43889}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB72BCC0-D225-4705-BB19-7C99C7F43889}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB72BCC0-D225-4705-BB19-7C99C7F43889}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB72BCC0-D225-4705-BB19-7C99C7F43889}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

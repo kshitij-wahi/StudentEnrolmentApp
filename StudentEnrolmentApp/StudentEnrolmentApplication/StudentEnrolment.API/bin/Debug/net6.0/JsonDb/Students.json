@@ -1,31 +1,16 @@
 [
   {
     "StudentId": 77777701,
-    "FirstName": "string",
+    "FirstName": "stringa",
     "LastName": "string",
     "KnownAs": "string",
     "DisplayName": "string",
-    "DateOfBirth": "string",
+    "DateOfBirth": "",
     "Gender": "string",
     "UniversityEmail": "string",
     "NetworkId": "string",
     "HomeOrOverseas": "string",
-    "CourseEnrolment": [
-      {
-        "EnrolmentId": "string",
-        "AcademicYear": "string",
-        "YearOfStudy": "string",
-        "Occurrence": "string",
-        "ModeOfAttendance": "string",
-        "EnrolmentStatus": "string",
-        "CourseEntryDate": "string",
-        "ExpectedEndDate": "string",
-        "Course": {
-          "CourseCode": "string",
-          "CourseName": "string"
-        }
-      }
-    ]
+    "CourseEnrolment": null
   },
   {
     "StudentId": 77777702,
@@ -33,7 +18,7 @@
     "LastName": "Test 02",
     "KnownAs": "Test",
     "DisplayName": "Test 02 Test 02",
-    "DateOfBirth": "1986-07-18T00:00:00",
+    "DateOfBirth": "",
     "Gender": "F",
     "UniversityEmail": "test.test1@bcu.ac.uk",
     "NetworkId": "S77777702",
@@ -103,27 +88,12 @@
     "LastName": "Test 04",
     "KnownAs": "Test",
     "DisplayName": "Test 04 Test 04",
-    "DateOfBirth": "1990-12-11T00:00:00",
+    "DateOfBirth": "",
     "Gender": "",
     "UniversityEmail": "Test.Test18@mail.bcu.ac.uk",
     "NetworkId": "S77777704",
     "HomeOrOverseas": "H",
-    "CourseEnrolment": [
-      {
-        "EnrolmentId": "77777704/1",
-        "AcademicYear": "2020/1",
-        "YearOfStudy": "1",
-        "Occurrence": "SEP",
-        "ModeOfAttendance": "FULL TIME",
-        "EnrolmentStatus": "E",
-        "CourseEntryDate": "2020-09-01T00:00:00",
-        "ExpectedEndDate": "2021-06-20T00:00:00",
-        "Course": {
-          "CourseCode": "UP0000",
-          "CourseName": "Used for testing"
-        }
-      }
-    ]
+    "CourseEnrolment": null
   },
   {
     "StudentId": 77777705,
@@ -131,27 +101,12 @@
     "LastName": "Test 05",
     "KnownAs": "Test",
     "DisplayName": "Test 05 Test 05",
-    "DateOfBirth": "1993-05-01T00:00:00",
+    "DateOfBirth": "",
     "Gender": "M",
     "UniversityEmail": "Test.Test3@mail.bcu.ac.uk",
     "NetworkId": "S77777705",
     "HomeOrOverseas": "H",
-    "CourseEnrolment": [
-      {
-        "EnrolmentId": "77777705/2",
-        "AcademicYear": "2020/1",
-        "YearOfStudy": "1",
-        "Occurrence": "SEP",
-        "ModeOfAttendance": "FULL TIME",
-        "EnrolmentStatus": "P",
-        "CourseEntryDate": "2020-09-24T00:00:00",
-        "ExpectedEndDate": "2021-07-31T00:00:00",
-        "Course": {
-          "CourseCode": "US0001",
-          "CourseName": "BA (Hons) Fine Art"
-        }
-      }
-    ]
+    "CourseEnrolment": null
   },
   {
     "StudentId": 77777706,
@@ -631,6 +586,34 @@
   },
   {
     "StudentId": 77777779,
+    "FirstName": "string1",
+    "LastName": "string",
+    "KnownAs": "string",
+    "DisplayName": "string",
+    "DateOfBirth": "string",
+    "Gender": "string",
+    "UniversityEmail": "string",
+    "NetworkId": "string",
+    "HomeOrOverseas": "string",
+    "CourseEnrolment": [
+      {
+        "EnrolmentId": "string",
+        "AcademicYear": "string",
+        "YearOfStudy": "string",
+        "Occurrence": "string",
+        "ModeOfAttendance": "string",
+        "EnrolmentStatus": "string",
+        "CourseEntryDate": "string",
+        "ExpectedEndDate": "string",
+        "Course": {
+          "CourseCode": "string",
+          "CourseName": "string"
+        }
+      }
+    ]
+  },
+  {
+    "StudentId": 77777780,
     "FirstName": "string",
     "LastName": "string",
     "KnownAs": "string",
@@ -656,5 +639,18 @@
         }
       }
     ]
+  },
+  {
+    "StudentId": 0,
+    "FirstName": "",
+    "LastName": "",
+    "KnownAs": "",
+    "DisplayName": "",
+    "DateOfBirth": "",
+    "Gender": "",
+    "UniversityEmail": "",
+    "NetworkId": "",
+    "HomeOrOverseas": "",
+    "CourseEnrolment": null
   }
 ]

@@ -9,6 +9,6 @@ namespace StudentEnrolment.Core.Services.Interfaces
 {
     public interface ICoursesService
     {
-        List<CourseModel> GetCourses();
+        IEnumerable<CourseModel> GetCourses();
     }
 }

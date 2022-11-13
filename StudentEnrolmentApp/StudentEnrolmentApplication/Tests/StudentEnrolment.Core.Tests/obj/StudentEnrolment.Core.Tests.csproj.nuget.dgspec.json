@@ -1,0 +1,227 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\MyWorkspace\\Git\\StudentEnrolmentApp\\StudentEnrolmentApplication\\Tests\\StudentEnrolment.Core.Tests\\StudentEnrolment.Core.Tests.csproj": {}
+  },
+  "projects": {
+    "D:\\MyWorkspace\\Git\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.Core\\StudentEnrolment.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\MyWorkspace\\Git\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.Core\\StudentEnrolment.Core.csproj",
+        "projectName": "StudentEnrolment.Core",
+        "projectPath": "D:\\MyWorkspace\\Git\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.Core\\StudentEnrolment.Core.csproj",
+        "packagesPath": "C:\\Users\\kshit\\.nuget\\packages\\",
+        "outputPath": "D:\\MyWorkspace\\Git\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\kshit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\MyWorkspace\\Git\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.Infrastructure\\StudentEnrolment.Infrastructure.csproj": {
+                "projectPath": "D:\\MyWorkspace\\Git\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.Infrastructure\\StudentEnrolment.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.Extensions.Logging.Abstractions": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\MyWorkspace\\Git\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.Infrastructure\\StudentEnrolment.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\MyWorkspace\\Git\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.Infrastructure\\StudentEnrolment.Infrastructure.csproj",
+        "projectName": "StudentEnrolment.Infrastructure",
+        "projectPath": "D:\\MyWorkspace\\Git\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.Infrastructure\\StudentEnrolment.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\kshit\\.nuget\\packages\\",
+        "outputPath": "D:\\MyWorkspace\\Git\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\kshit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\MyWorkspace\\Git\\StudentEnrolmentApp\\StudentEnrolmentApplication\\Tests\\StudentEnrolment.Core.Tests\\StudentEnrolment.Core.Tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\MyWorkspace\\Git\\StudentEnrolmentApp\\StudentEnrolmentApplication\\Tests\\StudentEnrolment.Core.Tests\\StudentEnrolment.Core.Tests.csproj",
+        "projectName": "StudentEnrolment.Core.Tests",
+        "projectPath": "D:\\MyWorkspace\\Git\\StudentEnrolmentApp\\StudentEnrolmentApplication\\Tests\\StudentEnrolment.Core.Tests\\StudentEnrolment.Core.Tests.csproj",
+        "packagesPath": "C:\\Users\\kshit\\.nuget\\packages\\",
+        "outputPath": "D:\\MyWorkspace\\Git\\StudentEnrolmentApp\\StudentEnrolmentApplication\\Tests\\StudentEnrolment.Core.Tests\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\kshit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\MyWorkspace\\Git\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.Core\\StudentEnrolment.Core.csproj": {
+                "projectPath": "D:\\MyWorkspace\\Git\\StudentEnrolmentApp\\StudentEnrolmentApplication\\StudentEnrolment.Core\\StudentEnrolment.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "AutoFixture": {
+              "target": "Package",
+              "version": "[4.17.0, )"
+            },
+            "FluentAssertions": {
+              "target": "Package",
+              "version": "[6.8.0, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.1.0, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.18.2, )"
+            },
+            "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.2, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.1, )"
+            },
+            "xunit.runner.visualstudio": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.4.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

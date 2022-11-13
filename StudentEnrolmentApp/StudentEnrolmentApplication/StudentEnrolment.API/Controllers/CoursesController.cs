@@ -20,9 +20,9 @@ namespace StudentEnrolment.API.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<List<CourseModel>> GetCourses()
+        public ActionResult<IEnumerable<CourseModel>> GetCourses()
         {
-            List<CourseModel>? courses = _coursesService.GetCourses();
+            List<CourseModel>? courses = _coursesService.GetCourses().ToList();
             return courses == null ? NotFound() : Ok(courses);
         }
     }

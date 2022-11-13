@@ -17,10 +17,10 @@ namespace StudentEnrolment.Core.Services
         {
             _repositoryService = repositoryService;
         }
-        public List<CourseModel> GetCourses()
+        public IEnumerable<CourseModel> GetCourses()
         {
             // the file name logic is there till we have json files as db
-            List<CourseModel> courses = _repositoryService.Get("Courses");
+            IEnumerable<CourseModel> courses = _repositoryService.Get("Courses");
             return courses;
         }
     }

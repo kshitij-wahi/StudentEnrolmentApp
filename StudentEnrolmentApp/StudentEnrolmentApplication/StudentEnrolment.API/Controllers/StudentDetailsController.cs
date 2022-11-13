@@ -4,6 +4,7 @@ using StudentEnrolment.Core.Models;
 using StudentEnrolment.Core.Services.Interfaces;
 using StudentEnrolment.Infrastructure.Services;
 using StudentEnrolment.Infrastructure.Services.Interfaces;
+using System.Collections.Generic;
 using System.Text.Json;
 
 namespace StudentEnrolment.API.Controllers
@@ -22,28 +23,28 @@ namespace StudentEnrolment.API.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<List<StudentDetailsModel>> GetStudentDetails()
+        public ActionResult<IEnumerable<StudentDetailsModel>> GetStudentDetails()
         {
-            List<StudentDetailsModel>? studentDetails = _studentDetailsService.GetStudentDetails();
-            return studentDetails == null ? NotFound() : Ok(studentDetails);
+            List<StudentDetailsModel>? studentDetails = _studentDetailsService.GetStudentDetails().ToList();
+            return studentDetails == null ? Problem(detail: "Either the db is empty or some error occurred", statusCode: 404) : Ok(studentDetails);
         }
 
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<List<StudentDetailsModel>> AddStudentDetails(StudentDetailsModel newStudentDetails)
+        public ActionResult AddStudentDetails(StudentDetailsModel newStudentDetails)
         {
-            List<StudentDetailsModel> studentDetails = _studentDetailsService.AddStudentDetails(newStudentDetails);
-            return studentDetails == null ? NotFound() : Ok(studentDetails); ;
+            bool isAdded = _studentDetailsService.AddStudentDetails(newStudentDetails);
+            return isAdded ? Ok("Student details added successfully") : Problem("Some error occured while adding student details", statusCode: 500);
         }
 
         [HttpPut]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<List<StudentDetailsModel>> UpdateStudentDetails(StudentDetailsModel updatedStudentDetails)
+        public ActionResult UpdateStudentDetails(StudentDetailsModel updatedStudentDetails)
         {
-            List<StudentDetailsModel> studentDetails = _studentDetailsService.UpdateStudentDetails(updatedStudentDetails);
-            return studentDetails;
+            bool isUpdated = _studentDetailsService.UpdateStudentDetails(updatedStudentDetails);
+            return isUpdated ? Ok("Student details updated successfully") : Problem("Some error occured while updating student details", statusCode: 500); ;
         }
     }
 }

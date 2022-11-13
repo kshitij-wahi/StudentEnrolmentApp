@@ -1,7 +1,7 @@
 import { Course } from "./course-model";
 
 export class StudentDetails {
-  studentId?: number;
+  studentId: number = 0;
   firstName = "";
   lastName = "";
   knownAs = "";

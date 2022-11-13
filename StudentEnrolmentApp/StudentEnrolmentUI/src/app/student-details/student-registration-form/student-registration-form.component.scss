@@ -1,9 +1,8 @@
+// input.ng-invalid.ng-touched{
+//     border: red 1px solid;
+// }
 
-input.ng-invalid.ng-touched{
-    border: red 1px solid;
-}
-
-small{
+small {
     color: red;
 }
 
@@ -18,4 +17,25 @@ table {
 
 .component-spacer {
     margin-bottom: 30px;
+}
+
+.mat-radio-button~.mat-radio-button {
+    margin-left: 16px;
+}
+
+.submit-btn-spacer {
+    margin-right: 12px;
+}
+
+.add-btn-spacer{
+    margin-right: 12px;
+}
+
+.submit-cancel-row{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.radio-grp-bottom-spacer{
+    margin-bottom: 18px;
 }

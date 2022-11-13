@@ -8,7 +8,7 @@ namespace StudentEnrolment.Infrastructure.Services.Interfaces
 {
     public interface IJsonHandlingService<T> where T : class
     {
-        List<T> FetchFromJson(string fileName);
+        IEnumerable<T> FetchFromJson(string fileName);
         void AddToJson(string fileName, List<T> list);
     }
 }

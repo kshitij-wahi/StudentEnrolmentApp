@@ -17,15 +17,19 @@ namespace StudentEnrolment.Infrastructure.Services
         {
             _jsonHandlingService = jsonHandlingService;
         }
-        public List<T> Get(string fileName)
+        public IEnumerable<T> Get(string fileName)
         {
-            List<T> fetchedItems = _jsonHandlingService.FetchFromJson(fileName);
-            return fetchedItems;
+            IEnumerable<T> fetchedItems = _jsonHandlingService.FetchFromJson(fileName);
+            if (fetchedItems != null)
+            {
+                return fetchedItems;
+            }
+            return null;
         }
-            
+
         public void Add(string fileName, T entity)
         {
-            List<T> fetchedItems = _jsonHandlingService.FetchFromJson(fileName);
+            List<T> fetchedItems = _jsonHandlingService.FetchFromJson(fileName).ToList();
             fetchedItems.Add(entity);
             _jsonHandlingService.AddToJson(fileName, fetchedItems);
         }

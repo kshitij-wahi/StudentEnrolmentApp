@@ -17,7 +17,7 @@ namespace StudentEnrolment.Infrastructure.Services
         {
             _fileHandlingService = fileHandlingService;
         }
-        public List<T> FetchFromJson(string fileName)
+        public IEnumerable<T> FetchFromJson(string fileName)
         {
             List<T>? fetchedItems = new List<T>();
             using (StreamReader openStream = _fileHandlingService.OpenReadStream(fileName))

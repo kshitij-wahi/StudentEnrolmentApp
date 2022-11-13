@@ -66,3 +66,4 @@ D:\MyWorkspace\Git\StudentEnrolmentApp\StudentEnrolmentApplication\StudentEnrolm
 D:\MyWorkspace\Git\StudentEnrolmentApp\StudentEnrolmentApplication\StudentEnrolment.API\obj\Debug\net6.0\StudentEnrolment.API.pdb
 D:\MyWorkspace\Git\StudentEnrolmentApp\StudentEnrolmentApplication\StudentEnrolment.API\obj\Debug\net6.0\StudentEnrolment.API.genruntimeconfig.cache
 D:\MyWorkspace\Git\StudentEnrolmentApp\StudentEnrolmentApplication\StudentEnrolment.API\obj\Debug\net6.0\ref\StudentEnrolment.API.dll
+D:\MyWorkspace\Git\StudentEnrolmentApp\StudentEnrolmentApplication\StudentEnrolment.API\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll

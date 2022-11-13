@@ -9,8 +9,8 @@ namespace StudentEnrolment.Core.Services.Interfaces
 {
     public interface IStudentDetailsService
     {
-        List<StudentDetailsModel> GetStudentDetails();
-        List<StudentDetailsModel> AddStudentDetails(StudentDetailsModel newStudentDetails);
-        List<StudentDetailsModel> UpdateStudentDetails(StudentDetailsModel updatedStudentDetails);
+        IEnumerable<StudentDetailsModel>? GetStudentDetails();
+        bool AddStudentDetails(StudentDetailsModel newStudentDetails);
+        bool UpdateStudentDetails(StudentDetailsModel updatedStudentDetails);
     }
 }
