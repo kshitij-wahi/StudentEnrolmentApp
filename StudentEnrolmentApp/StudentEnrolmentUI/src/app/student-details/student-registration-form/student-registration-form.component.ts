@@ -121,6 +121,11 @@ export class StudentRegistrationFormComponent implements OnInit {
   addCourseEnrolment(courseEnrolmentForm: NgForm) {
     var courseCode = this.courses.find(x => x.courseName === courseEnrolmentForm.value.course);
     
+    var newCourse: Course = {
+      courseCode: courseCode ? courseCode.courseCode : "",
+      courseName: courseEnrolmentForm.value.course
+    };
+
     // if course already added throw error
     const found = this.studentDetails.courseEnrolment.some(e => e.course.courseCode === newCourse.courseCode);
     if(found){
@@ -128,10 +133,6 @@ export class StudentRegistrationFormComponent implements OnInit {
       return;
     }
 
-    var newCourse: Course = {
-      courseCode: courseCode ? courseCode.courseCode : "",
-      courseName: courseEnrolmentForm.value.course
-    };
 
     var courseEntryDate = formatDate(courseEnrolmentForm.value.courseEntryDate, GlobalConstants.DateTimeFormat, GlobalConstants.Locale);
     var expectedEndDate = formatDate(courseEnrolmentForm.value.expectedEndDate, GlobalConstants.DateTimeFormat, GlobalConstants.Locale);
