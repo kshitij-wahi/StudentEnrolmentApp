@@ -36,6 +36,11 @@ table {
     margin-bottom: 20px;
 }
 
-.radio-grp-bottom-spacer{
+.radio-grp-spacer{
     margin-bottom: 18px;
+    margin-right: 18px;
+}
+
+.radio-grp-spacer mat-label{
+    margin-right: 18px;
 }

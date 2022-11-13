@@ -8,6 +8,8 @@ import { Course } from 'src/app/models/course-model';
 import { Observable } from 'rxjs';
 import { formatDate } from '@angular/common';
 import { StudentDetailsService } from 'src/app/services/student-details.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { GlobalConstants } from 'src/app/globals/global-constants';
 
 @Component({
   selector: 'app-student-registration-form',
@@ -24,14 +26,12 @@ export class StudentRegistrationFormComponent implements OnInit {
   courses: Course[] = [];
 
   @Input() set studentModel(value: StudentDetails) {
-    console.log("here", value);
     this.studentDetails = value;
     this.dataSource = new MatTableDataSource<CourseEnrolment>(value.courseEnrolment);
     this.dataSource.paginator = this.paginatorCourseEnrollment;
     this.dataSource.sort = this.sortCourseEnrolment;
     this.enrolmentDetails = new CourseEnrolment();
     this.isUpdate = true;
-    console.log(this.isUpdate);
   };
 
   @Input() set courseModel(value: Course[]) {
@@ -39,30 +39,26 @@ export class StudentRegistrationFormComponent implements OnInit {
     this.filteredOptions = value;
   };
 
-  @Output() addUpdateNotification = new EventEmitter<string>();
+  @Output() addUpdateCancelNotification = new EventEmitter<string>();
 
   dataSource!: MatTableDataSource<CourseEnrolment>;
   displayedColumns: string[] = ['courseCode', 'courseName', 'enrolmentStatus', 'occurrence', 'action'];
   @ViewChild(MatPaginator) paginatorCourseEnrollment!: MatPaginator;
   @ViewChild(MatSort) sortCourseEnrolment!: MatSort;
 
-  // studentModel: StudentDetails = new StudentDetails();
-  // coursesEnrolled: CourseEnrolment[] = this.studentModel.courseEnrolment;
-
-  constructor(private _studentDetailsService: StudentDetailsService, private ref: ChangeDetectorRef) {
+  constructor(private _studentDetailsService: StudentDetailsService,
+    private ref: ChangeDetectorRef,
+    private _snackBar: MatSnackBar) {
 
   }
 
   ngOnInit(): void {
-    // this.coursesEnrolled = this.studentModel.courseEnrolment;
   }
 
   onSubmit() {
-    console.log(this.studentModel);
   }
 
   editEnrolment(data: any) {
-    console.log(data);
     this.enrolmentDetails = data;
     this.isEnrolmentFormUpdate = true;
     this.ref.detectChanges();
@@ -81,48 +77,64 @@ export class StudentRegistrationFormComponent implements OnInit {
     }
   }
 
-  updateCourseEnrolment(courseEnrolmentForm: NgForm) {
-    var indexOfEnrolmentToUpdate = this.studentDetails.courseEnrolment.findIndex(x => x.enrolmentId == courseEnrolmentForm.value.enrolmentId);
-    console.log("courseEnrolmentForm.value", courseEnrolmentForm.value);
 
-    this.studentDetails.courseEnrolment[indexOfEnrolmentToUpdate].enrolmentId = courseEnrolmentForm.value.enrolmentId;
-    this.studentDetails.courseEnrolment[indexOfEnrolmentToUpdate].enrolmentStatus = courseEnrolmentForm.value.enrolmentStatus;
-    this.studentDetails.courseEnrolment[indexOfEnrolmentToUpdate].courseEntryDate = formatDate(courseEnrolmentForm.value.courseEntryDate, 'yyyy-MM-ddTHH:mm:ss', "en_US");
-    this.studentDetails.courseEnrolment[indexOfEnrolmentToUpdate].expectedEndDate = formatDate(courseEnrolmentForm.value.expectedEndDate, 'yyyy-MM-ddTHH:mm:ss', "en_US");
-    this.studentDetails.courseEnrolment[indexOfEnrolmentToUpdate].modeOfAttendance = courseEnrolmentForm.value.modeOfAttendance;
-    this.studentDetails.courseEnrolment[indexOfEnrolmentToUpdate].occurrence = courseEnrolmentForm.value.occurrence;
-    this.studentDetails.courseEnrolment[indexOfEnrolmentToUpdate].yearOfStudy = courseEnrolmentForm.value.yearOfStudy;
-    this.studentDetails.courseEnrolment[indexOfEnrolmentToUpdate].academicYear = courseEnrolmentForm.value.academicYear;
+  updateCourseEnrolment(courseEnrolmentForm: NgForm) {
+    var indexOfEnrolmentToUpdate = this.dataSource.data.findIndex(x => x.enrolmentId == this.enrolmentDetails.enrolmentId);
+
+    this.dataSource.data[indexOfEnrolmentToUpdate].enrolmentId = this.enrolmentDetails.enrolmentId;
+    this.dataSource.data[indexOfEnrolmentToUpdate].enrolmentStatus = courseEnrolmentForm.value.enrolmentStatus;
+    this.dataSource.data[indexOfEnrolmentToUpdate].courseEntryDate = formatDate(courseEnrolmentForm.value.courseEntryDate, GlobalConstants.DateTimeFormat, GlobalConstants.Locale);
+    this.dataSource.data[indexOfEnrolmentToUpdate].expectedEndDate = formatDate(courseEnrolmentForm.value.expectedEndDate, GlobalConstants.DateTimeFormat, GlobalConstants.Locale);
+    this.dataSource.data[indexOfEnrolmentToUpdate].modeOfAttendance = courseEnrolmentForm.value.modeOfAttendance;
+    this.dataSource.data[indexOfEnrolmentToUpdate].occurrence = courseEnrolmentForm.value.occurrence;
+    this.dataSource.data[indexOfEnrolmentToUpdate].yearOfStudy = courseEnrolmentForm.value.yearOfStudy;
+    this.dataSource.data[indexOfEnrolmentToUpdate].academicYear = courseEnrolmentForm.value.academicYear;
 
     var courseCode = this.courses.find(x => x.courseName === courseEnrolmentForm.value.course);
-    this.studentDetails.courseEnrolment[indexOfEnrolmentToUpdate].course.courseCode = courseCode ? courseCode.courseCode : "";
-    this.studentDetails.courseEnrolment[indexOfEnrolmentToUpdate].course.courseName = courseEnrolmentForm.value.course;
+    this.dataSource.data[indexOfEnrolmentToUpdate].course.courseCode = courseCode ? courseCode.courseCode : "";
+    this.dataSource.data[indexOfEnrolmentToUpdate].course.courseName = courseEnrolmentForm.value.course;
 
-    console.log("this.studentDetails.courseEnrolment[indexOfEnrolmentToUpdate]", this.studentDetails.courseEnrolment[indexOfEnrolmentToUpdate]);
-    this.dataSource = new MatTableDataSource<CourseEnrolment>(this.studentDetails.courseEnrolment);
-    console.log(courseEnrolmentForm);
     this.resetCourseEnrolmentForm(courseEnrolmentForm);
   }
 
   createEnrolmentId() {
-    var enrolmentId = this.studentDetails.courseEnrolment.reduce((max, obj) => (Number(max.enrolmentId.split("/")[1]) > Number(obj.enrolmentId.split("/")[1])) ? max : obj).enrolmentId;
-    enrolmentId = this.studentDetails.studentId + "/" + String(Number(enrolmentId.split("/")[1]) + 1);
+    var enrolmentId: any;
+    // if it is an update and we already have the enrolment ids
+    // in the course enrolment table.
+    // studentDetails.studentId will be 0 in case it is a fresh record/"add new student"
+    if (this.studentDetails.studentId != 0) {
+      enrolmentId = this.dataSource.data.reduce((max, obj) => (Number(max.enrolmentId.split("/")[1]) > Number(obj.enrolmentId.split("/")[1])) ? max : obj).enrolmentId;
+      enrolmentId = this.studentDetails.studentId + "/" + String(Number(enrolmentId.split("/")[1]) + 1);
+      // return enrolmentId;
+    }
+    else {
+      // if it is an add and the course enrolment table is empty
+      // in this case the ids will be populated by the backend apis
+      enrolmentId = this.studentDetails.courseEnrolment.length == 0 ? 1 : this.dataSource.data.length + 1
+    }
     return enrolmentId;
   }
 
   addCourseEnrolment(courseEnrolmentForm: NgForm) {
-    console.log("Add clicked");
     var courseCode = this.courses.find(x => x.courseName === courseEnrolmentForm.value.course);
+    
+    // if course already added throw error
+    const found = this.studentDetails.courseEnrolment.some(e => e.course.courseCode === newCourse.courseCode);
+    if(found){
+      alert(GlobalConstants.CourseAlreadyAddedMessage);
+      return;
+    }
+
     var newCourse: Course = {
       courseCode: courseCode ? courseCode.courseCode : "",
       courseName: courseEnrolmentForm.value.course
     };
 
-    var courseEntryDate = formatDate(courseEnrolmentForm.value.courseEntryDate, 'yyyy-MM-ddTHH:mm:ss', "en_US");
-    var expectedEndDate = formatDate(courseEnrolmentForm.value.expectedEndDate, 'yyyy-MM-ddTHH:mm:ss', "en_US");
-    var enrolmentId = this.studentDetails.courseEnrolment.length == 0 ? 1 : this.studentDetails.courseEnrolment.length + 1
+    var courseEntryDate = formatDate(courseEnrolmentForm.value.courseEntryDate, GlobalConstants.DateTimeFormat, GlobalConstants.Locale);
+    var expectedEndDate = formatDate(courseEnrolmentForm.value.expectedEndDate, GlobalConstants.DateTimeFormat, GlobalConstants.Locale);
+
     var newCourseEnrolment: CourseEnrolment = {
-      enrolmentId: enrolmentId.toString(),
+      enrolmentId: this.createEnrolmentId().toString(),
       enrolmentStatus: courseEnrolmentForm.value.enrolmentStatus,
       courseEntryDate: courseEntryDate,
       expectedEndDate: expectedEndDate,
@@ -132,11 +144,10 @@ export class StudentRegistrationFormComponent implements OnInit {
       academicYear: courseEnrolmentForm.value.academicYear,
       course: newCourse
     };
+
     this.studentDetails.courseEnrolment.push(newCourseEnrolment);
     this.dataSource = new MatTableDataSource<CourseEnrolment>(this.studentDetails.courseEnrolment);
-    console.log(this.studentDetails);
     this.resetCourseEnrolmentForm(courseEnrolmentForm);
-
   }
 
   resetAllForms(studentRegistrationForm: NgForm, courseEnrolmentForm: NgForm) {
@@ -147,6 +158,7 @@ export class StudentRegistrationFormComponent implements OnInit {
     this.dataSource = new MatTableDataSource<CourseEnrolment>();
     this.isEnrolmentFormUpdate = false;
     this.isUpdate = false;
+    this.addUpdateCancelNotification.emit("form cancelled");
   }
 
   resetCourseEnrolmentForm(courseEnrollmentForm: NgForm) {
@@ -156,15 +168,21 @@ export class StudentRegistrationFormComponent implements OnInit {
   }
 
   submitStudentDetailsConfirmation(studentRegistrationForm: NgForm, courseEnrolmentForm: NgForm) {
-    console.log(courseEnrolmentForm);
-    if (courseEnrolmentForm.form.value.academicYear != "" || courseEnrolmentForm.form.invalid) {
-      if (confirm("You are editing enrolments, are you sure you want to submit")) {
+    // student should be enrolled before submitting the form
+    if (this.studentDetails.courseEnrolment.length != 0) {
+      // checking on academiYear whether it is dirty or invalid as it is a required field.
+      // we are manually checking this because the form states were not behaving as expected. 
+      if (courseEnrolmentForm.form.value.academicYear != "" || courseEnrolmentForm.form.invalid) {
+        if (confirm(GlobalConstants.EditingEnrolmentsConfirmMessage)) {
+          this.submitStudentDetails(studentRegistrationForm, courseEnrolmentForm);
+        }
+      } else {
         this.submitStudentDetails(studentRegistrationForm, courseEnrolmentForm);
       }
-    } else {
-      this.submitStudentDetails(studentRegistrationForm, courseEnrolmentForm);
     }
-
+    else {
+      alert(GlobalConstants.StudentNotEnroledAlertMessage);
+    }
   }
 
   submitStudentDetails(studentRegistrationForm: NgForm, courseEnrolmentForm: NgForm) {
@@ -172,14 +190,15 @@ export class StudentRegistrationFormComponent implements OnInit {
     this.studentDetails.lastName = studentRegistrationForm.value.lastName;
     this.studentDetails.knownAs = studentRegistrationForm.value.knownAs;
     this.studentDetails.displayName = studentRegistrationForm.value.displayName;
-    this.studentDetails.dateOfBirth = formatDate(studentRegistrationForm.value.dob, 'yyyy-MM-ddTHH:mm:ss', "en_US");
+    this.studentDetails.dateOfBirth = formatDate(studentRegistrationForm.value.dob, GlobalConstants.DateTimeFormat, GlobalConstants.Locale);
     this.studentDetails.gender = studentRegistrationForm.value.gender;
     this.studentDetails.universityEmail = studentRegistrationForm.value.universityEmail;
     // this.studentDetails.networkId = studentRegistrationForm.value.networkId;
     this.studentDetails.homeOrOverseas = studentRegistrationForm.value.homeOrOverseas;
-    this.studentDetails.courseEnrolment = this.dataSource.data;
+    // this.studentDetails.courseEnrolment = this.dataSource.data;
 
-    if (this.isUpdate) {
+
+    if (this.studentDetails.studentId) {
       this.updateStudentDetails(studentRegistrationForm, courseEnrolmentForm);
     }
     else {
@@ -191,7 +210,6 @@ export class StudentRegistrationFormComponent implements OnInit {
     // var filteredModel = this.courseModel.filter(c => c.courseCode === searchString || c.courseName === searchString);
     if (!searchString) this.filteredOptions = this.courses;
     else {
-      console.log(searchString);
       const filterValue = searchString.toLowerCase();
 
       this.filteredOptions = this.filteredOptions.filter(option => option.courseCode.toLowerCase().includes(filterValue) ||
@@ -202,25 +220,44 @@ export class StudentRegistrationFormComponent implements OnInit {
   addStudentDetails(studentRegistrationForm: NgForm, courseEnrolmentForm: NgForm) {
     this._studentDetailsService
       .addStudentDetails(this.studentDetails)
-      .subscribe((result) => (this.resetAllForms(studentRegistrationForm, courseEnrolmentForm),
-        this.addUpdateNotification.emit("add successful")));
+      .subscribe((result) => (
+        this.resetAllForms(studentRegistrationForm, courseEnrolmentForm),
+        this.openSnackBar(GlobalConstants.AddSuccessMessage),
+        this.addUpdateCancelNotification.emit("add successful")));
   }
 
   updateStudentDetails(studentRegistrationForm: NgForm, courseEnrolmentForm: NgForm) {
     this._studentDetailsService
       .updateStudentDetails(this.studentDetails)
-      .subscribe((result) => (this.resetAllForms(studentRegistrationForm, courseEnrolmentForm),
-        this.addUpdateNotification.emit("update successful")));
+      .subscribe((result) => (
+        this.resetAllForms(studentRegistrationForm, courseEnrolmentForm),
+        this.openSnackBar(GlobalConstants.UpdateSuccessMessage),
+        this.addUpdateCancelNotification.emit("update successful")));
   }
 
   deleteEnrolment(row: any) {
-    console.log(row);
-    console.log(this.studentDetails.courseEnrolment.filter((item, index) => index !== row));
-    this.dataSource = new MatTableDataSource<CourseEnrolment>(this.studentDetails.courseEnrolment.filter((item, index) => item.enrolmentId !== row.enrolmentId))
+    if (this.dataSource.data.length > 1) {
+      const indx = this.studentDetails.courseEnrolment.findIndex(v => v.enrolmentId === row.enrolmentId);
+      this.studentDetails.courseEnrolment.splice(indx, indx >= 0 ? 1 : 0);
+      this.dataSource = new MatTableDataSource<CourseEnrolment>(this.studentDetails.courseEnrolment);
+      // this.dataSource = new MatTableDataSource<CourseEnrolment>(
+      //   this.studentDetails.courseEnrolment.filter((item, index) => item.enrolmentId !== row.enrolmentId));
+      // var valueToDelete = this.studentDetails.courseEnrolment.find(x => x.enrolmentId == row.enrolmentId)
+      // if (valueToDelete != null) {
+      //   this.tempArrayForDelete.push(valueToDelete);
+      // }
+    }
+    else {
+      alert(GlobalConstants.EnrolmentsCantBeNullMessage);
+    }
 
-    // this.dataSource.data.splice(index, 1);
-    // this.dataSource._updateChangeSubscription();
-    // this.dataSource.paginator = this.paginatorCourseEnrollment; 
-    // this.dataSource.sort = this.sortCourseEnrolment;
   }
+
+  openSnackBar(message: string) {
+    this._snackBar.open(message, 'Cancel', {
+      duration: 5000
+    });
+  }
+
+
 }

@@ -31,20 +31,20 @@ namespace StudentEnrolment.API.Controllers
 
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public ActionResult AddStudentDetails(StudentDetailsModel newStudentDetails)
         {
             bool isAdded = _studentDetailsService.AddStudentDetails(newStudentDetails);
-            return isAdded ? Ok("Student details added successfully") : Problem("Some error occured while adding student details", statusCode: 500);
+            return isAdded ? Ok() : Problem("Some error occured while adding student details", statusCode: 500);
         }
 
         [HttpPut]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public ActionResult UpdateStudentDetails(StudentDetailsModel updatedStudentDetails)
         {
             bool isUpdated = _studentDetailsService.UpdateStudentDetails(updatedStudentDetails);
-            return isUpdated ? Ok("Student details updated successfully") : Problem("Some error occured while updating student details", statusCode: 500); ;
+            return isUpdated ? Ok() : Problem("Some error occured while updating student details", statusCode: 500); ;
         }
     }
 }

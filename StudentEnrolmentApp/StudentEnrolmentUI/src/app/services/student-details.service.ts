@@ -42,7 +42,7 @@ export class StudentDetailsService {
     if (error.status === 0) {
       // A client-side or network error occurred. Handle it accordingly.
       console.error('An error occurred:', error.error);
-    } else {
+    } else if(error.status !== 200) {
       console.error('An error occurred:', error.error.detail);
 
       this.openSnackBar(error.error.detail)

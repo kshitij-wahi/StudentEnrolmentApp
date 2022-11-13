@@ -8,12 +8,7 @@
                     [ngModel]="studentDetails.firstName" required #fname="ngModel">
                 <small *ngIf="fname.invalid && fname.touched">*First name is required</small>
             </mat-form-field>
-            <!-- <div class="form-group">
-                <label for="firstName">First Name</label>
-                <input id="firstName" type="text" class="form-control" name="firstName"
-                    [ngModel]="studentDetails.firstName" required #fname="ngModel">
-                
-            </div> -->
+
             <mat-form-field appearance="outline">
                 <mat-label for="lastName">Last Name</mat-label>
                 <input matInput placeholder="Placeholder" id="lastName" name="lastName"
@@ -38,7 +33,6 @@
                 <mat-label for="dob">Date of Birth</mat-label>
                 <input matInput id="dob" name="dob" [ngModel]="studentDetails.dateOfBirth" required #dob="ngModel"
                     [matDatepicker]="picker">
-                <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
                 <small *ngIf="dob.invalid && dob.touched">*Date of Birth is required</small>
@@ -60,13 +54,6 @@
                     [ngModel]="studentDetails.universityEmail" required #universityEmail="ngModel">
                 <small *ngIf="universityEmail.invalid && universityEmail.touched">*University Email is required</small>
             </mat-form-field>
-
-            <!-- <mat-form-field appearance="outline">
-                <mat-label for="networkId">Network Id</mat-label>
-                <input matInput id="networkId" name="networkId" [ngModel]="studentDetails.networkId" required
-                    #networkId="ngModel">
-                <small *ngIf="networkId.invalid && networkId.touched">*Network Id is required</small>
-            </mat-form-field> -->
 
             <mat-form-field appearance="outline">
                 <mat-label for="homeOrOverseas">Home or Overseas</mat-label>
@@ -127,12 +114,9 @@
                 <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of enrolled courses">
                 </mat-paginator>
             </div>
+
             <form (ngSubmit)="onSubmit()" #courseEnrolmentForm="ngForm">
-                <!-- <div class="form-group">
-                    <label for="enrolmentId">Enrolment Id</label>
-                    <input id="enrolmentId" type="hidden" class="form-control" name="enrolmentId"
-                        [ngModel]="enrolmentDetails.enrolmentId">
-                </div> -->
+
                 <mat-form-field appearance="outline">
                     <mat-label for="academicYear">Academic Year</mat-label>
                     <input matInput id="academicYear" name="academicYear" [ngModel]="enrolmentDetails.academicYear"
@@ -146,17 +130,8 @@
                         required #yearOfStudy="ngModel">
                     <small *ngIf="yearOfStudy.invalid && yearOfStudy.touched">*Year of study is required</small>
                 </mat-form-field>
-                <!-- 
-                <mat-form-field appearance="outline">
-                    <mat-label for="occurrence">Occurrence</mat-label>
-                    <mat-select id="occurrence" name="occurrence" [ngModel]="enrolmentDetails.occurrence" required
-                        #occurrence="ngModel">
-                        <mat-option value="SEP">SEP</mat-option>
-                        <mat-option value="JAN">JAN</mat-option>
-                    </mat-select>
-                    <small *ngIf="occurrence.invalid && occurrence.touched">*Occurrence is required</small>
-                </mat-form-field> -->
-                <div class="radio-grp-bottom-spacer">
+
+                <div class="radio-grp-spacer">
                     <mat-label for="occurrence">Occurrence: </mat-label>
                     <mat-radio-group id="occurrence" name="occurrence" [ngModel]="enrolmentDetails.occurrence" required
                         #occurrence="ngModel">
@@ -166,7 +141,7 @@
                     </mat-radio-group>
                 </div>
 
-                <div class="radio-grp-bottom-spacer">
+                <div class="radio-grp-spacer">
                     <mat-label for="modeOfAttendance">Mode Of Attendance: </mat-label>
                     <mat-radio-group id="modeOfAttendance" name="modeOfAttendance"
                         [ngModel]="enrolmentDetails.modeOfAttendance">
@@ -175,13 +150,7 @@
                     </mat-radio-group>
                 </div>
 
-                <!-- 
-                <div class="form-group">
-                    <label for="modeOfAttendance">Mode Of Attendance</label>
-                    <input id="modeOfAttendance" type="text" class="form-control" name="modeOfAttendance"
-                        [ngModel]="enrolmentDetails.modeOfAttendance">
-                </div> -->
-                <div class="radio-grp-bottom-spacer">
+                <div class="radio-grp-spacer">
                     <mat-label for="enrolmentStatus">Enrolment Status: </mat-label>
                     <mat-radio-group id="enrolmentStatus" name="enrolmentStatus"
                         [ngModel]="enrolmentDetails.enrolmentStatus">
@@ -189,45 +158,28 @@
                         <mat-radio-button value="N">Not Enrolled</mat-radio-button>
                     </mat-radio-group>
                 </div>
-                <!-- <div class="form-group">
-                    <label for="enrolmentStatus">Enrolment Status</label>
-                    <input id="enrolmentStatus" type="text" class="form-control" name="enrolmentStatus"
-                        [ngModel]="enrolmentDetails.enrolmentStatus">
-                </div> -->
 
                 <mat-form-field appearance="outline">
                     <mat-label for="courseEntryDate">Course Entry Date</mat-label>
                     <input matInput id="courseEntryDate" name="courseEntryDate"
                         [ngModel]="enrolmentDetails.courseEntryDate" required #courseEntryDate="ngModel"
                         [matDatepicker]="cedPicker">
-                    <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
                     <mat-datepicker-toggle matSuffix [for]="cedPicker"></mat-datepicker-toggle>
                     <mat-datepicker #cedPicker></mat-datepicker>
                     <small *ngIf="courseEntryDate.invalid && courseEntryDate.touched">*Course entry date is
                         required</small>
                 </mat-form-field>
-                <!-- <div class="form-group">
-                    <label for="courseEntryDate">Course Entry Date</label>
-                    <input id="courseEntryDate" type="text" class="form-control" name="courseEntryDate"
-                        [ngModel]="enrolmentDetails.courseEntryDate">
-                </div> -->
+
                 <mat-form-field appearance="outline">
                     <mat-label for="expectedEndDate">Expected End Date</mat-label>
                     <input matInput id="expectedEndDate" name="expectedEndDate"
                         [ngModel]="enrolmentDetails.expectedEndDate" required #expectedEndDate="ngModel"
                         [matDatepicker]="eedPicker">
-                    <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
                     <mat-datepicker-toggle matSuffix [for]="eedPicker"></mat-datepicker-toggle>
                     <mat-datepicker #eedPicker></mat-datepicker>
                     <small *ngIf="expectedEndDate.invalid && expectedEndDate.touched">*Expected end date is
                         required</small>
                 </mat-form-field>
-
-                <!-- <div class="form-group">
-                    <label for="expectedEndDate">Expected End Date</label>
-                    <input id="expectedEndDate" type="text" class="form-control" name="expectedEndDate"
-                        [ngModel]="enrolmentDetails.expectedEndDate">
-                </div> -->
 
                 <mat-form-field appearance="outline">
                     <mat-label for="course">Course</mat-label>
@@ -243,34 +195,16 @@
                     <small *ngIf="course.invalid && course.touched">*Course is required</small>
                 </mat-form-field>
 
-                <!-- <div class="form-group">
-                    <label for="courseCode">Course Code</label>
-                    <select class="form-control" id="gender" name="gender" [ngModel]="studentDetails.gender" required
-                        #gender="ngModel">
-                        <option value="M">Male</option>
-                        <option value="F" selected>Female</option>
-                        <option value="O">Other</option>
-                    </select>
-                    <small *ngIf="gender.invalid && gender.touched">*Gender is required</small>
-
-                    <input id="courseCode" type="text" class="form-control" name="courseCode"
-                        [ngModel]="enrolmentDetails.course.courseCode">
-                </div>
-                <div class="form-group">
-                    <label for="courseName">Course Name</label>
-                    <input id="courseName" type="text" class="form-control" name="courseName"
-                        [ngModel]="enrolmentDetails.course.courseName">
-                </div> -->
-
             </form>
             <button mat-flat-button class="add-btn-spacer" color="primary"
-                [disabled]="courseEnrolmentForm.form.invalid || studentRegistrationForm.form.pristine"
+                [disabled]="courseEnrolmentForm.form.invalid"
                 (click)="addUpdateCourseEnrolment(courseEnrolmentForm)">
                 {{isEnrolmentFormUpdate ? 'Update' : 'Add'}}
             </button>
             <button mat-stroked-button (click)="resetCourseEnrolmentForm(courseEnrolmentForm)">Cancel</button>
         </div>
     </div>
+    
     <div class="submit-cancel-row">
         <button mat-flat-button class="submit-btn-spacer" color="primary" type="submit"
             [disabled]="studentRegistrationForm.form.invalid"

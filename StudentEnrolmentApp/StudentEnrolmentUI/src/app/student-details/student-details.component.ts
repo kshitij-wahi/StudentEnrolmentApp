@@ -31,14 +31,13 @@ export class StudentDetailsComponent implements OnInit {
 
   getStudentDetails() {
     this._studentDetailsService
-      .getStudentDetails().subscribe((result) => (this.studentDetails = result,
-        console.log("hereee", result)));
+      .getStudentDetails().subscribe((result) => (this.studentDetails = result));
   }
 
   getCourses() {
     this._courseService
       .getCourses()
-      .subscribe((result: Course[]) => (this.courses = result, console.log("here", result)));
+      .subscribe((result: Course[]) => (this.courses = result));
   }
 
 }

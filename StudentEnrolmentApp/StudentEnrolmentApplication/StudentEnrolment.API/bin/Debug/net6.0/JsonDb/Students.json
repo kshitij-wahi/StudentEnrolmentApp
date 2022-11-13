@@ -1,16 +1,31 @@
 [
   {
     "StudentId": 77777701,
-    "FirstName": "stringa",
+    "FirstName": "string",
     "LastName": "string",
     "KnownAs": "string",
     "DisplayName": "string",
-    "DateOfBirth": "",
+    "DateOfBirth": "string",
     "Gender": "string",
     "UniversityEmail": "string",
     "NetworkId": "string",
     "HomeOrOverseas": "string",
-    "CourseEnrolment": null
+    "CourseEnrolment": [
+      {
+        "EnrolmentId": "string",
+        "AcademicYear": "string",
+        "YearOfStudy": "string",
+        "Occurrence": "string",
+        "ModeOfAttendance": "string",
+        "EnrolmentStatus": "string",
+        "CourseEntryDate": "string",
+        "ExpectedEndDate": "string",
+        "Course": {
+          "CourseCode": "string",
+          "CourseName": "string"
+        }
+      }
+    ]
   },
   {
     "StudentId": 77777702,
@@ -18,7 +33,7 @@
     "LastName": "Test 02",
     "KnownAs": "Test",
     "DisplayName": "Test 02 Test 02",
-    "DateOfBirth": "",
+    "DateOfBirth": "2022-11-04T00:00:00",
     "Gender": "F",
     "UniversityEmail": "test.test1@bcu.ac.uk",
     "NetworkId": "S77777702",

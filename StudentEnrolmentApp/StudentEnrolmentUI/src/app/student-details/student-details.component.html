@@ -13,7 +13,7 @@ one cmoponent for form with enrollment table
         </app-student-details-table>
     </div>
     <div class="row">
-        <app-student-registration-form (addUpdateNotification) = "getStudentDetails()"
+        <app-student-registration-form (addUpdateCancelNotification) = "getStudentDetails()"
             [studentModel]="studentDetailsForRegistrationForm"
             [courseModel]="courses"></app-student-registration-form>
     </div>

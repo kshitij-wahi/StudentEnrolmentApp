@@ -3,6 +3,7 @@ import { StudentDetails } from 'src/app/models/student-details.model';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { GlobalConstants } from 'src/app/globals/global-constants';
 
 @Component({
   selector: 'app-student-details-table',
@@ -11,20 +12,23 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class StudentDetailsTableComponent implements OnInit {
 
+  isEditing:boolean = false;
+
   // @Input() studentDetails: StudentDetails[] = [];
   @Output() updateStudent = new EventEmitter<StudentDetails>();
 
-  @Input() set studentDetails(value:StudentDetails[]) {
-    console.log(value);
+
+  @Input() set studentDetails(value: StudentDetails[]) {
     this.dataSource = new MatTableDataSource<StudentDetails>(value);
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+    this.isEditing = false;
   };
   dataSource!: MatTableDataSource<StudentDetails>;
 
   displayedColumns: string[] = ['studentId', 'firstName', 'lastName', 'displayName', 'dateOfBirth', 'gender', 'universityEmail', 'networkId', 'homeOrOverseas', 'edit'];
 
-  @ViewChild(MatPaginator, {static: true}) paginator!: MatPaginator;
+  @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
   constructor() { }
@@ -37,8 +41,20 @@ export class StudentDetailsTableComponent implements OnInit {
   }
 
   editStudent(student: StudentDetails) {
-    console.log("table", student)
-    this.updateStudent.emit(student);
+    // if (localStorage.getItem('isEditing') == "true" && localStorage.getItem('isEditing')){
+    //   alert(GlobalConstants.EditInprogressMessage);
+    // }
+    // else {
+    //   localStorage.setItem('isEditing', "true");
+    //   this.updateStudent.emit(student);
+    // } 
+    if (this.isEditing){
+      alert(GlobalConstants.EditInprogressMessage);
+    }
+    else {
+      this.isEditing = true;
+      this.updateStudent.emit(student);
+    } 
   }
 
   applyFilter(event: Event) {
