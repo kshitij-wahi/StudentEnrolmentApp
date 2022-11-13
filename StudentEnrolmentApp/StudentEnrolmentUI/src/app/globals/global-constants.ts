@@ -8,7 +8,7 @@ export class GlobalConstants {
     public static EditingEnrolmentsConfirmMessage: string = "You are editing enrolments, are you sure you want to submit";
     public static StudentNotEnroledAlertMessage: string = "Please enrol the student in a course";
     public static EditInprogressMessage: string = "Please cancel the editing in progress to edit new item";
-    public static EnrolmentsCantBeNullMessage: string = "Enrolments cannot be null";
+    public static EnrolmentsCantBeNullMessage: string = "Student should be enroled on atleast 1 course.";
     public static CourseAlreadyAddedMessage: string = "You have already added this course";
     public static CancelText: string = "Cancel";
     public static SubmitText: string = "Submit";
