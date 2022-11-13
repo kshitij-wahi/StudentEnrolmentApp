@@ -42,6 +42,10 @@ namespace StudentEnrolment.Core.Services
             bool isAdded = false;
             try
             {
+                // this logic should ideally be in the repository 
+                // but because we need to get first and the update
+                // in it, therefore we have kept it on the service
+                // where we are making get calls.
                 GenerateIndicesandNetworkId(ref newStudentDetails);
                 _repositoryService.Add("Students", newStudentDetails);
                 isAdded = true;
@@ -90,7 +94,7 @@ namespace StudentEnrolment.Core.Services
             int newId = _repositoryService.Get("Students").ToList().Last().StudentId + 1;
             newStudentDetails.StudentId = newId;
             newStudentDetails.NetworkId = "S"+newId.ToString();
-            newStudentDetails.CourseEnrolment.ForEach(x => x.EnrolmentId = x.EnrolmentId + "/" + newId);
+            newStudentDetails.CourseEnrolment.ForEach(x => x.EnrolmentId = newId + "/" + x.EnrolmentId);
         }
     }
 }

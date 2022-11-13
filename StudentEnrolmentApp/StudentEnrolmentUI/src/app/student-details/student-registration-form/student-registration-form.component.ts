@@ -26,8 +26,10 @@ export class StudentRegistrationFormComponent implements OnInit {
   courses: Course[] = [];
 
   @Input() set studentModel(value: StudentDetails) {
+    console.log(value);
     this.studentDetails = value;
     this.dataSource = new MatTableDataSource<CourseEnrolment>(value.courseEnrolment);
+    console.log(this.dataSource.data);
     this.dataSource.paginator = this.paginatorCourseEnrollment;
     this.dataSource.sort = this.sortCourseEnrolment;
     this.enrolmentDetails = new CourseEnrolment();
@@ -59,6 +61,7 @@ export class StudentRegistrationFormComponent implements OnInit {
   }
 
   editEnrolment(data: any) {
+    console.log(data);
     this.enrolmentDetails = data;
     this.isEnrolmentFormUpdate = true;
     this.ref.detectChanges();
@@ -197,7 +200,6 @@ export class StudentRegistrationFormComponent implements OnInit {
     this.studentDetails.homeOrOverseas = studentRegistrationForm.value.homeOrOverseas;
     // this.studentDetails.courseEnrolment = this.dataSource.data;
 
-
     if (this.studentDetails.studentId) {
       this.updateStudentDetails(studentRegistrationForm, courseEnrolmentForm);
     }
@@ -207,7 +209,6 @@ export class StudentRegistrationFormComponent implements OnInit {
   }
 
   doFilter(searchString: any) {
-    // var filteredModel = this.courseModel.filter(c => c.courseCode === searchString || c.courseName === searchString);
     if (!searchString) this.filteredOptions = this.courses;
     else {
       const filterValue = searchString.toLowerCase();
@@ -240,12 +241,6 @@ export class StudentRegistrationFormComponent implements OnInit {
       const indx = this.studentDetails.courseEnrolment.findIndex(v => v.enrolmentId === row.enrolmentId);
       this.studentDetails.courseEnrolment.splice(indx, indx >= 0 ? 1 : 0);
       this.dataSource = new MatTableDataSource<CourseEnrolment>(this.studentDetails.courseEnrolment);
-      // this.dataSource = new MatTableDataSource<CourseEnrolment>(
-      //   this.studentDetails.courseEnrolment.filter((item, index) => item.enrolmentId !== row.enrolmentId));
-      // var valueToDelete = this.studentDetails.courseEnrolment.find(x => x.enrolmentId == row.enrolmentId)
-      // if (valueToDelete != null) {
-      //   this.tempArrayForDelete.push(valueToDelete);
-      // }
     }
     else {
       alert(GlobalConstants.EnrolmentsCantBeNullMessage);
@@ -258,6 +253,5 @@ export class StudentRegistrationFormComponent implements OnInit {
       duration: 5000
     });
   }
-
 
 }

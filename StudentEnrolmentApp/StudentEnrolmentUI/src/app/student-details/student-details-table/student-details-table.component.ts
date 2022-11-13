@@ -34,20 +34,10 @@ export class StudentDetailsTableComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    // this.dataSource = new MatTableDataSource<StudentDetails>(this.studentDetails);
-    // console.log("here",this.dataSource)
-    // console.log("here",this.studentDetails)
 
   }
 
   editStudent(student: StudentDetails) {
-    // if (localStorage.getItem('isEditing') == "true" && localStorage.getItem('isEditing')){
-    //   alert(GlobalConstants.EditInprogressMessage);
-    // }
-    // else {
-    //   localStorage.setItem('isEditing', "true");
-    //   this.updateStudent.emit(student);
-    // } 
     if (this.isEditing){
       alert(GlobalConstants.EditInprogressMessage);
     }

@@ -1,28 +1,28 @@
 [
   {
     "StudentId": 77777701,
-    "FirstName": "string",
-    "LastName": "string",
-    "KnownAs": "string",
-    "DisplayName": "string",
-    "DateOfBirth": "string",
-    "Gender": "string",
-    "UniversityEmail": "string",
-    "NetworkId": "string",
-    "HomeOrOverseas": "string",
+    "FirstName": "Test",
+    "LastName": "Test",
+    "KnownAs": "Test",
+    "DisplayName": "Test 1 Test",
+    "DateOfBirth": "2000-04-01T00:00:00",
+    "Gender": "F",
+    "UniversityEmail": "Test.Test19@mail.bcu.ac.uk",
+    "NetworkId": "S77777701",
+    "HomeOrOverseas": "H",
     "CourseEnrolment": [
       {
-        "EnrolmentId": "string",
-        "AcademicYear": "string",
-        "YearOfStudy": "string",
-        "Occurrence": "string",
-        "ModeOfAttendance": "string",
-        "EnrolmentStatus": "string",
-        "CourseEntryDate": "string",
-        "ExpectedEndDate": "string",
+        "EnrolmentId": "77777701/7",
+        "AcademicYear": "2020/1",
+        "YearOfStudy": "0",
+        "Occurrence": "JAN2S",
+        "ModeOfAttendance": "FULL TIME",
+        "EnrolmentStatus": "E",
+        "CourseEntryDate": "2020-02-05T00:00:00",
+        "ExpectedEndDate": "2021-09-06T00:00:00",
         "Course": {
-          "CourseCode": "string",
-          "CourseName": "string"
+          "CourseCode": "PT0129Z",
+          "CourseName": "MA Interior Design (extended) (BCUIC)"
         }
       }
     ]
@@ -33,7 +33,7 @@
     "LastName": "Test 02",
     "KnownAs": "Test",
     "DisplayName": "Test 02 Test 02",
-    "DateOfBirth": "2022-11-04T00:00:00",
+    "DateOfBirth": "1986-07-18T00:00:00",
     "Gender": "F",
     "UniversityEmail": "test.test1@bcu.ac.uk",
     "NetworkId": "S77777702",
@@ -58,13 +58,13 @@
         "AcademicYear": "2020/1",
         "YearOfStudy": "2",
         "Occurrence": "SEP",
-        "ModeOfAttendance": "PART TIME",
+        "ModeOfAttendance": "FULL TIME",
         "EnrolmentStatus": "E",
         "CourseEntryDate": "2020-09-12T00:00:00",
         "ExpectedEndDate": "2022-11-25T00:00:00",
         "Course": {
-          "CourseCode": "UP0000",
-          "CourseName": "Used for testing"
+          "CourseCode": "CP0012N",
+          "CourseName": "Medical Ultrasound Modules (PT)"
         }
       }
     ]
@@ -76,7 +76,7 @@
     "KnownAs": "Test",
     "DisplayName": "Test 03 Test 03",
     "DateOfBirth": "1989-03-07T00:00:00",
-    "Gender": "",
+    "Gender": "F",
     "UniversityEmail": "Test.Test6@mail.bcu.ac.uk",
     "NetworkId": "S77777703",
     "HomeOrOverseas": "H",
@@ -89,10 +89,10 @@
         "ModeOfAttendance": "FULL TIME",
         "EnrolmentStatus": "E",
         "CourseEntryDate": "2020-02-12T00:00:00",
-        "ExpectedEndDate": "",
+        "ExpectedEndDate": "2022-11-23T00:00:00",
         "Course": {
-          "CourseCode": "UP0000",
-          "CourseName": "Used for testing"
+          "CourseCode": "CP0045",
+          "CourseName": "International Summer School"
         }
       }
     ]
@@ -103,12 +103,27 @@
     "LastName": "Test 04",
     "KnownAs": "Test",
     "DisplayName": "Test 04 Test 04",
-    "DateOfBirth": "",
+    "DateOfBirth": "1990-12-11T00:00:00",
     "Gender": "",
     "UniversityEmail": "Test.Test18@mail.bcu.ac.uk",
     "NetworkId": "S77777704",
     "HomeOrOverseas": "H",
-    "CourseEnrolment": null
+    "CourseEnrolment": [
+      {
+        "EnrolmentId": "77777704/1",
+        "AcademicYear": "2020/1",
+        "YearOfStudy": "1",
+        "Occurrence": "SEP",
+        "ModeOfAttendance": "FULL TIME",
+        "EnrolmentStatus": "E",
+        "CourseEntryDate": "2020-09-01T00:00:00",
+        "ExpectedEndDate": "2021-06-20T00:00:00",
+        "Course": {
+          "CourseCode": "UP0000",
+          "CourseName": "Used for testing"
+        }
+      }
+    ]
   },
   {
     "StudentId": 77777705,
@@ -116,12 +131,27 @@
     "LastName": "Test 05",
     "KnownAs": "Test",
     "DisplayName": "Test 05 Test 05",
-    "DateOfBirth": "",
+    "DateOfBirth": "1993-05-01T00:00:00",
     "Gender": "M",
     "UniversityEmail": "Test.Test3@mail.bcu.ac.uk",
     "NetworkId": "S77777705",
     "HomeOrOverseas": "H",
-    "CourseEnrolment": null
+    "CourseEnrolment": [
+      {
+        "EnrolmentId": "77777705/2",
+        "AcademicYear": "2020/1",
+        "YearOfStudy": "1",
+        "Occurrence": "SEP",
+        "ModeOfAttendance": "FULL TIME",
+        "EnrolmentStatus": "P",
+        "CourseEntryDate": "2020-09-24T00:00:00",
+        "ExpectedEndDate": "2021-07-31T00:00:00",
+        "Course": {
+          "CourseCode": "US0001",
+          "CourseName": "BA (Hons) Fine Art"
+        }
+      }
+    ]
   },
   {
     "StudentId": 77777706,
@@ -567,159 +597,6 @@
         "Course": {
           "CourseCode": "PT1097",
           "CourseName": "Master of Arts Video Game Development"
-        }
-      }
-    ]
-  },
-  {
-    "StudentId": 77777778,
-    "FirstName": "string",
-    "LastName": "string",
-    "KnownAs": "string",
-    "DisplayName": "string",
-    "DateOfBirth": "string",
-    "Gender": "string",
-    "UniversityEmail": "string",
-    "NetworkId": "string",
-    "HomeOrOverseas": "string",
-    "CourseEnrolment": [
-      {
-        "EnrolmentId": "string",
-        "AcademicYear": "string",
-        "YearOfStudy": "string",
-        "Occurrence": "string",
-        "ModeOfAttendance": "string",
-        "EnrolmentStatus": "string",
-        "CourseEntryDate": "string",
-        "ExpectedEndDate": "string",
-        "Course": {
-          "CourseCode": "string",
-          "CourseName": "string"
-        }
-      }
-    ]
-  },
-  {
-    "StudentId": 77777779,
-    "FirstName": "string1",
-    "LastName": "string",
-    "KnownAs": "string",
-    "DisplayName": "string",
-    "DateOfBirth": "string",
-    "Gender": "string",
-    "UniversityEmail": "string",
-    "NetworkId": "string",
-    "HomeOrOverseas": "string",
-    "CourseEnrolment": [
-      {
-        "EnrolmentId": "string",
-        "AcademicYear": "string",
-        "YearOfStudy": "string",
-        "Occurrence": "string",
-        "ModeOfAttendance": "string",
-        "EnrolmentStatus": "string",
-        "CourseEntryDate": "string",
-        "ExpectedEndDate": "string",
-        "Course": {
-          "CourseCode": "string",
-          "CourseName": "string"
-        }
-      }
-    ]
-  },
-  {
-    "StudentId": 77777780,
-    "FirstName": "string",
-    "LastName": "string",
-    "KnownAs": "string",
-    "DisplayName": "string",
-    "DateOfBirth": "string",
-    "Gender": "string",
-    "UniversityEmail": "string",
-    "NetworkId": "string",
-    "HomeOrOverseas": "string",
-    "CourseEnrolment": [
-      {
-        "EnrolmentId": "string",
-        "AcademicYear": "string",
-        "YearOfStudy": "string",
-        "Occurrence": "string",
-        "ModeOfAttendance": "string",
-        "EnrolmentStatus": "string",
-        "CourseEntryDate": "string",
-        "ExpectedEndDate": "string",
-        "Course": {
-          "CourseCode": "string",
-          "CourseName": "string"
-        }
-      }
-    ]
-  },
-  {
-    "StudentId": 0,
-    "FirstName": "",
-    "LastName": "",
-    "KnownAs": "",
-    "DisplayName": "",
-    "DateOfBirth": "",
-    "Gender": "",
-    "UniversityEmail": "",
-    "NetworkId": "",
-    "HomeOrOverseas": "",
-    "CourseEnrolment": null
-  },
-  {
-    "StudentId": 1,
-    "FirstName": "Test",
-    "LastName": "Test 02",
-    "KnownAs": "Test",
-    "DisplayName": "Test 02 Test 02",
-    "DateOfBirth": "2022-11-16T00:00:00",
-    "Gender": "O",
-    "UniversityEmail": "test.test1@bcu.ac.uk",
-    "NetworkId": "S1",
-    "HomeOrOverseas": "O",
-    "CourseEnrolment": [
-      {
-        "EnrolmentId": "1/1",
-        "AcademicYear": "2020/1",
-        "YearOfStudy": "1",
-        "Occurrence": "JAN",
-        "ModeOfAttendance": "FULL TIME",
-        "EnrolmentStatus": "E",
-        "CourseEntryDate": "2022-11-26T00:00:00",
-        "ExpectedEndDate": "2022-11-19T00:00:00",
-        "Course": {
-          "CourseCode": "CP0012N",
-          "CourseName": "Medical Ultrasound Modules (PT)"
-        }
-      }
-    ]
-  },
-  {
-    "StudentId": 2,
-    "FirstName": "Test",
-    "LastName": "Test 02",
-    "KnownAs": "Test",
-    "DisplayName": "Test 02 Test 02",
-    "DateOfBirth": "2022-11-08T00:00:00",
-    "Gender": "F",
-    "UniversityEmail": "test.test1@bcu.ac.uk",
-    "NetworkId": "S2",
-    "HomeOrOverseas": "O",
-    "CourseEnrolment": [
-      {
-        "EnrolmentId": "1/2",
-        "AcademicYear": "2020/1",
-        "YearOfStudy": "1",
-        "Occurrence": "JAN",
-        "ModeOfAttendance": "FULL TIME",
-        "EnrolmentStatus": "E",
-        "CourseEntryDate": "2022-11-16T00:00:00",
-        "ExpectedEndDate": "2022-11-17T00:00:00",
-        "Course": {
-          "CourseCode": "CP0045",
-          "CourseName": "International Summer School"
         }
       }
     ]

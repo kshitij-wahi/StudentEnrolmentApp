@@ -105,7 +105,7 @@
                             </button>
                         </td>
                     </ng-container>
-                    
+
 
                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
@@ -196,15 +196,14 @@
                 </mat-form-field>
 
             </form>
-            <button mat-flat-button class="add-btn-spacer" color="primary"
-                [disabled]="courseEnrolmentForm.form.invalid"
+            <button mat-flat-button class="add-btn-spacer" color="primary" [disabled]="courseEnrolmentForm.form.invalid"
                 (click)="addUpdateCourseEnrolment(courseEnrolmentForm)">
                 {{isEnrolmentFormUpdate ? 'Update' : 'Add'}}
             </button>
             <button mat-stroked-button (click)="resetCourseEnrolmentForm(courseEnrolmentForm)">Cancel</button>
         </div>
     </div>
-    
+
     <div class="submit-cancel-row">
         <button mat-flat-button class="submit-btn-spacer" color="primary" type="submit"
             [disabled]="studentRegistrationForm.form.invalid"
