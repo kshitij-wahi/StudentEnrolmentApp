@@ -20,11 +20,11 @@ namespace StudentEnrolment.Infrastructure.Services
         public IEnumerable<T> Get(string fileName)
         {
             IEnumerable<T> fetchedItems = _jsonHandlingService.FetchFromJson(fileName);
-            if (fetchedItems != null)
+            if (fetchedItems.Count() != 0)
             {
                 return fetchedItems;
             }
-            return null;
+            return fetchedItems;
         }
 
         public void Add(string fileName, T entity)

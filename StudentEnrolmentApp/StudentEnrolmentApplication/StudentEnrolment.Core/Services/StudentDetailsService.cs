@@ -20,20 +20,20 @@ namespace StudentEnrolment.Core.Services
             _repositoryService = repositoryService;
             _logger = logger;
         }
-        public IEnumerable<StudentDetailsModel> GetStudentDetails()
+        public IEnumerable<StudentDetailsModel> GetAllStudentDetails()
         {
+            IEnumerable<StudentDetailsModel> studentDetails = new  List<StudentDetailsModel>();
             try
             {
-                // the file name logic is there till we have json files as db
-                IEnumerable<StudentDetailsModel> studentDetails = _repositoryService.Get("Students");
-                return studentDetails;
-
+                // passing the file name in the function params till we have json files as db
+                studentDetails = _repositoryService.Get("Students");
             }
             catch (Exception e)
             {
                 _logger.LogError($"Error while trying to call GetStudentDetails in StudentDetailsService. Error Message - {e}");
                 throw;
             }
+            return studentDetails;
 
         }
 
@@ -42,7 +42,7 @@ namespace StudentEnrolment.Core.Services
             bool isAdded = false;
             try
             {
-                //GenerateIndices(newStudentDetails);
+                GenerateIndicesandNetworkId(ref newStudentDetails);
                 _repositoryService.Add("Students", newStudentDetails);
                 isAdded = true;
             }
@@ -55,7 +55,7 @@ namespace StudentEnrolment.Core.Services
         }
 
         // We have kept the firstordefault logic here in the
-        // service. Ideally it should be repository but finding
+        // service. Ideally it should be in repository but finding
         // id in generic repository is tricky. In dbset based 
         // repo we make a baseentity class and define an id in it.
         // Here if we will try to that, there would be a mapping
@@ -67,11 +67,15 @@ namespace StudentEnrolment.Core.Services
             {
                 List<StudentDetailsModel> studentDetails = _repositoryService.Get("Students").ToList();
                 var studentDetailsToUpdate = studentDetails.FirstOrDefault(item => item.StudentId == updatedStudentDetails.StudentId);
-                var index = studentDetails.IndexOf(studentDetailsToUpdate);
-                if (index != -1)
-                    studentDetails[index] = updatedStudentDetails;
-                 _repositoryService.Update("Students", studentDetails);
-                isUpdated = true;
+                if (studentDetailsToUpdate != null)
+                {
+                    var index = studentDetails.IndexOf(studentDetailsToUpdate);
+                    if (index != -1)
+                        studentDetails[index] = updatedStudentDetails;
+                    _repositoryService.Update("Students", studentDetails);
+                    isUpdated = true;
+                }
+
             }
             catch (Exception e)
             {
@@ -81,9 +85,12 @@ namespace StudentEnrolment.Core.Services
             return isUpdated;
         }
 
-        //private GenerateIndices(newStudentDetails)
-        //{
-
-        //}
+        private void GenerateIndicesandNetworkId(ref StudentDetailsModel newStudentDetails)
+        {
+            int newId = _repositoryService.Get("Students").ToList().Last().StudentId + 1;
+            newStudentDetails.StudentId = newId;
+            newStudentDetails.NetworkId = "S"+newId.ToString();
+            newStudentDetails.CourseEnrolment.ForEach(x => x.EnrolmentId = x.EnrolmentId + "/" + newId);
+        }
     }
 }

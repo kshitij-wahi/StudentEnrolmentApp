@@ -27,7 +27,7 @@ namespace StudentEnrolment.API.Tests.Controllers
         {
             // Arrange
             var coursesMock = _fixture.Create <List<CourseModel>>();
-            _serviceMock.Setup(x => x.GetCourses()).Returns(coursesMock);
+            _serviceMock.Setup(x => x.GetAllCourses()).Returns(coursesMock);
 
             // Act
             var result = _sut.GetCourses();
@@ -39,24 +39,33 @@ namespace StudentEnrolment.API.Tests.Controllers
                 .And.BeOfType(coursesMock.GetType());
 
             // moqs way of verification. 
-            _serviceMock.Verify(x => x.GetCourses(), Times.Once());
+            _serviceMock.Verify(x => x.GetAllCourses(), Times.Once());
         }
+
 
         [Fact]
         public void GetCourses_ShouldReturnNoResultFound_WhenDataNotFound()
         {
             // Arrange
-            List<CourseModel>? response = null;
-            _serviceMock.Setup(x => x.GetCourses()).Returns(response);
+            List<CourseModel> response = new List<CourseModel>(); ;
+            _serviceMock.Setup(x => x.GetAllCourses()).Returns(response);
+            ProblemDetails o = new ProblemDetails
+            {
+                Detail = "Either the db is empty or some error occurred",
+                Status = 404
+            };
 
             // Act
             var result = _sut.GetCourses();
 
             // Assert
-            result.Result.Should().BeAssignableTo<NotFoundResult>();
+            result.Result.Should().NotBeNull();
+            result.Result.Should().BeAssignableTo<ObjectResult>();
+            Assert.Equal(o.Status.ToString(), result.Result.As<ObjectResult>().Value.As<ProblemDetails>().Status.ToString());
+            Assert.Equal(o.Detail.ToString(), result.Result.As<ObjectResult>().Value.As<ProblemDetails>().Detail.ToString());
 
             // moqs way of verification. 
-            _serviceMock.Verify(x => x.GetCourses(), Times.Once());
+            _serviceMock.Verify(x => x.GetAllCourses(), Times.Once());
         }
     }
 }

@@ -25,8 +25,8 @@ namespace StudentEnrolment.API.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult<IEnumerable<StudentDetailsModel>> GetStudentDetails()
         {
-            List<StudentDetailsModel>? studentDetails = _studentDetailsService.GetStudentDetails().ToList();
-            return studentDetails == null ? Problem(detail: "Either the db is empty or some error occurred", statusCode: 404) : Ok(studentDetails);
+            List<StudentDetailsModel> studentDetails = _studentDetailsService.GetAllStudentDetails().ToList();
+            return studentDetails.Count() == 0 ? Problem(detail: "Either the db is empty or some error occurred", statusCode: 404) : Ok(studentDetails);
         }
 
         [HttpPost]

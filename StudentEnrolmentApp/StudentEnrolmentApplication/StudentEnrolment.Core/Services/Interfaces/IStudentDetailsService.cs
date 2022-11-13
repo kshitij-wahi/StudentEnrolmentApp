@@ -9,7 +9,7 @@ namespace StudentEnrolment.Core.Services.Interfaces
 {
     public interface IStudentDetailsService
     {
-        IEnumerable<StudentDetailsModel>? GetStudentDetails();
+        IEnumerable<StudentDetailsModel> GetAllStudentDetails();
         bool AddStudentDetails(StudentDetailsModel newStudentDetails);
         bool UpdateStudentDetails(StudentDetailsModel updatedStudentDetails);
     }

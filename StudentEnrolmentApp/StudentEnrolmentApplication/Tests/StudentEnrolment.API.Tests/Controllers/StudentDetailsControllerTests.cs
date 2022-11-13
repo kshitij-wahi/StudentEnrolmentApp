@@ -29,7 +29,7 @@ namespace StudentEnrolment.API.Tests.Controllers
         {
             // Arrange
             var response = _fixture.Create<IEnumerable<StudentDetailsModel>>().ToList();
-            _serviceMock.Setup(x => x.GetStudentDetails()).Returns(response);
+            _serviceMock.Setup(x => x.GetAllStudentDetails()).Returns(response);
 
             // Act
             var result = _sut.GetStudentDetails();
@@ -41,15 +41,15 @@ namespace StudentEnrolment.API.Tests.Controllers
                 .And.BeOfType(response.GetType());
 
             // moqs way of verification. 
-            _serviceMock.Verify(x => x.GetStudentDetails(), Times.Once());
+            _serviceMock.Verify(x => x.GetAllStudentDetails(), Times.Once());
         }
 
         [Fact]
         public void GetStudentDetails_ShouldReturnNoResultFound_WhenDataNotFound()
         {
             // Arrange
-            List<StudentDetailsModel>? response = null;
-            _serviceMock.Setup(x => x.GetStudentDetails()).Returns(response);
+            List<StudentDetailsModel> response = new List<StudentDetailsModel>();
+            _serviceMock.Setup(x => x.GetAllStudentDetails()).Returns(response);
             ProblemDetails o = new ProblemDetails
             {
                 Detail = "Either the db is empty or some error occurred",
@@ -59,15 +59,13 @@ namespace StudentEnrolment.API.Tests.Controllers
             // Act
             var result = _sut.GetStudentDetails();
 
-
-
             // Assert
             result.Result.Should().NotBeNull();
             result.Result.Should().BeAssignableTo<ObjectResult>();
             Assert.Equal(o.Status.ToString(), result.Result.As<ObjectResult>().Value.As<ProblemDetails>().Status.ToString());
             Assert.Equal(o.Detail.ToString(), result.Result.As<ObjectResult>().Value.As<ProblemDetails>().Detail.ToString());
             // moqs way of verification. 
-            _serviceMock.Verify(x => x.GetStudentDetails(), Times.Once());
+            _serviceMock.Verify(x => x.GetAllStudentDetails(), Times.Once());
         }
 
         [Fact]

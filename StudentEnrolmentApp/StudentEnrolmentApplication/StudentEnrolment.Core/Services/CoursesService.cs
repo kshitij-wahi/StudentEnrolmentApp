@@ -1,4 +1,5 @@
-﻿using StudentEnrolment.Core.Models;
+﻿using Microsoft.Extensions.Logging;
+using StudentEnrolment.Core.Models;
 using StudentEnrolment.Core.Services.Interfaces;
 using StudentEnrolment.Infrastructure.Services.Interfaces;
 using System;
@@ -12,16 +13,29 @@ namespace StudentEnrolment.Core.Services
     public class CoursesService : ICoursesService
     {
         private readonly IRepositoryService<CourseModel> _repositoryService;
+        private readonly ILogger<CoursesService> _logger;
 
-        public CoursesService(IRepositoryService<CourseModel> repositoryService)
+        public CoursesService(IRepositoryService<CourseModel> repositoryService, ILogger<CoursesService> logger)
         {
             _repositoryService = repositoryService;
+            _logger = logger;
+
         }
-        public IEnumerable<CourseModel> GetCourses()
+        public IEnumerable<CourseModel> GetAllCourses()
         {
-            // the file name logic is there till we have json files as db
-            IEnumerable<CourseModel> courses = _repositoryService.Get("Courses");
+            IEnumerable<CourseModel> courses = new List<CourseModel>();
+            try
+            {
+                // the file name logic is there till we have json files as db
+                courses = _repositoryService.Get("Courses");
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"Error while trying to call GetCourses in CoursesService. Error Message - {e}");
+                throw;
+            }
             return courses;
+
         }
     }
 }

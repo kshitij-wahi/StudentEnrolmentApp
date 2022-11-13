@@ -18,6 +18,6 @@ namespace StudentEnrolment.Core.Models
         public string UniversityEmail { get; set; } = string.Empty;
         public string NetworkId { get; set; } = string.Empty;
         public string HomeOrOverseas { get; set; } = string.Empty;
-        public List<EnrolmentDetailsModel>? CourseEnrolment { get; set; }
+        public List<EnrolmentDetailsModel> CourseEnrolment { get; set; } = new List<EnrolmentDetailsModel>();
     }
 }

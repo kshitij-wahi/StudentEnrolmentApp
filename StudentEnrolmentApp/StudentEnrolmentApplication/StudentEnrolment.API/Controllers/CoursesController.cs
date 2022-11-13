@@ -22,8 +22,8 @@ namespace StudentEnrolment.API.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult<IEnumerable<CourseModel>> GetCourses()
         {
-            List<CourseModel>? courses = _coursesService.GetCourses().ToList();
-            return courses == null ? NotFound() : Ok(courses);
+            List<CourseModel> courses = _coursesService.GetAllCourses().ToList();
+            return courses.Count() == 0 ? Problem(detail: "Either the db is empty or some error occurred", statusCode: 404) : Ok(courses);
         }
     }
 }
